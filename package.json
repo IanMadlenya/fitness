@@ -1,0 +1,7 @@
+{
+	"name" : "MEAN",
+	"version" : "1.0.0",
+	"dependencies" : {
+		"express" : "~4.8.8"
+	}
+}
