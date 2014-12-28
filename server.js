@@ -2,6 +2,8 @@ var express = require( 'express' );
 var app = express();
 
 
+//Middleware
+
 app.use( '/', function(req, res) {
 	res.send( 'Hello World' );
 });
