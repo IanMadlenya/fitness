@@ -7,7 +7,7 @@ in your operating system prior to running your app
 
 On Unix systems :
 
-$ export NODE_ENV=developemt
+$ export NODE_ENV=development
 
 */
 
