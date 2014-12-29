@@ -42,6 +42,14 @@ module.exports = function() {
 
 	require('../app/routes/index.server.routes.js')(app);
 
+	//serve static files
+
+	/*Notice how this is below the call to the routes.
+	This matters because express would try to look for HTTP
+	request paths in the static files folder- this would be SLOW*/
+
+	app.use(express.static('./public'));
+
 	//return all...
 
 	return app;
