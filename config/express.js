@@ -3,11 +3,13 @@ The express.js file is where we configure our express application
 This is where we add everything related to the express configuration
 */
 
-var express = require('express');
-var morgan = require('morgan');
-var compress = require('compression');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+var config = require('./config'),
+	express = require('express'),
+	morgan = require('morgan'),
+	compress = require('compression'),
+	bodyParser = require('body-parser'),
+	methodOverride = require('method-override'),
+	session = require('express-session');
 
 
 module.exports = function() {
@@ -31,6 +33,12 @@ module.exports = function() {
 	app.use(bodyParser.json());
 
 	app.use(methodOverride());
+
+	app.use(session({
+		saveUninitialized: true,
+		resave: true,
+		secret: config.sessionSecret
+	}));
 
 	//ejs
 

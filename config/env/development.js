@@ -10,5 +10,5 @@ environment variable to determine which config file to load.
 */
 
 module.exports = {
-	//Dev configuration options
+	sessionSecret : 'developmentSecretSession'
 };
