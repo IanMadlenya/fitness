@@ -24,11 +24,25 @@ module.exports = function() {
 
 	}
 
+	app.use(bodyParser.urlencoded({
+		extended: true
+	}));
+
 	app.use(bodyParser.json());
 
 	app.use(methodOverride());
 
+	//ejs
+
+	app.set('views', './app/views');
+
+	app.set('view engine', 'ejs');
+
+	//get the routes
+
 	require('../app/routes/index.server.routes.js')(app);
+
+	//return all...
 
 	return app;
 };
