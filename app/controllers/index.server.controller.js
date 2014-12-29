@@ -1,10 +1,10 @@
 exports.render = function( req, res ) {
 	
-	if(req.session.lasVisit) {
-		console.log(req.session.lasVisit);
+	if(req.session.lastVisit) {
+		console.log(req.session.lastVisit);
 	}
 
-	req.session.lasVisit = new Date();
+	req.session.lastVisit = new Date();
 
 	res.render('index', {
 		title : 'Hello World'
