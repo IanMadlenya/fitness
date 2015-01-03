@@ -50,6 +50,10 @@ module.exports = function() {
 
 	require('../app/routes/index.server.routes.js')(app);
 
+	//get the users routes
+
+	require('../app/routes/user.server.routes.js')(app);
+
 	//serve static files
 
 	/*Notice how this is below the call to the routes.
