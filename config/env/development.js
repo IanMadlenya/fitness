@@ -10,5 +10,6 @@ environment variable to determine which config file to load.
 */
 
 module.exports = {
+	db: 'mongodb://localhost/mean',
 	sessionSecret : 'developmentSecretSession'
 };
