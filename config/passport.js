@@ -11,10 +11,11 @@ module.exports = function() {
     passport.deserializeUser(function(id, done) {
         User.findOne({
             _id: id
-        }, '-password-salt', function(err, user) {
+        }, '-password -salt', function(err, user) {
             done(err, user);
         });
     });
 
     require('./strategies/local.js')();
+    require('./strategies/google.js')();
 };
