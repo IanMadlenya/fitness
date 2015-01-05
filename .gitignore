@@ -30,3 +30,7 @@ node_modules
 #Ignore sensitive data
 
 config/env
+
+#bower install
+
+public/lib
