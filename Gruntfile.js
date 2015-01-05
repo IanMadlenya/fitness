@@ -4,14 +4,14 @@ module.exports = function(grunt) {
         // JS TASKS ================================================================
         // check all js files for errors
         jshint: {
-            all: ['public/**/*.js']
+            all: ['public/js/**/*.js']
         },
 
         // COOL TASKS ==============================================================
         // watch css and js files and process the above tasks
         watch: {
             js: {
-                files: ['public/**/*.js'],
+                files: ['public/js/**/*.js'],
                 tasks: ['jshint']
             }
         },
