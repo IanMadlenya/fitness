@@ -2,21 +2,50 @@
 <html>
 	<head>
 		<title><%= title %></title>
+		<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
 	</head>
 
 	<body>
 
-		<% if(user) { %>
-			<a href="/signout">Sign out</a>
-		<% } else { %>
-			
-			<a href="/signup">Sign Up</a>
-			<a href="/signin">Sign In</a>
-			<a href ="/oauth/google" >Sign in with Google</a>
+		<div class="container">
+	            <!-- HEADER -->
+            <nav class="navbar navbar-inverse">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">MEAN fitness</a>
+                </div>
+                <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Placeholder</a></li>
+                    <li><a href="/">Placeholder</a></li>
+                    <li><a href="/">Placeholder</a></li>
+                </ul>
+            </nav>
 
-		<% } %>
+            <div class="row">
 
-		<section ng-view></section>
+				<% if(user) { %>
+					<a href="/signout" class="btn btn-default">Sign out</a>
+				<% } else { %>
+					
+					<a href="/signup" class="btn btn-default">Sign Up</a>
+					<a href="/signin" class="btn btn-default">Sign In</a>
+					<a href ="/oauth/google" class="btn btn-danger">Sign in with Google+</a>
+
+				<% } %>
+
+			</div>
+
+			<div class="row">
+
+				<section ng-view></section>
+
+			</div>
+
+
+		</div>
+
+
+		
 
 
 		<script type="text/javascript">
