@@ -6,8 +6,7 @@
 
 	<body>
 
-		<% if(userFullName) { %>
-			<h2>Hello <%= userFullName %> </h2>
+		<% if(user) { %>
 			<a href="/signout">Sign out</a>
 		<% } else { %>
 			
@@ -19,11 +18,18 @@
 
 		<section ng-view></section>
 
+
+		<script type="text/javascript">
+			window.user = <%- user || 'null' %>;
+		</script>
+
 		<script type="text/javascript" src="/lib/angular/angular.js"></script>
 		<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
 		<script type="text/javascript" src="/js/journal/journal.client.module.js"></script>
 		<script type="text/javascript" src="/js/journal/controllers/journal.client.controller.js"></script>
-		<script type="text/javascript" src="js/journal/config/journal.client.routes.js"></script>
+		<script type="text/javascript" src="/js/journal/config/journal.client.routes.js"></script>
+		<script type="text/javascript" src="/js/users/users.client.module.js"></script>
+		<script type="text/javascript" src="/js/users/services/authentication.client.service.js"></script>
 		<script type="text/javascript" src="/js/application.js"></script>
 	</body>
 </html>

@@ -1,5 +1,5 @@
-angular.module('journal').controller('JournalController', ['$scope',
-    function($scope) {
-        $scope.name = 'MEAN Fit';
-    }
+angular.module('journal').controller('JournalController', ['$scope', 'Authentication',
+    function($scope, Authentication) {
+        $scope.name = Authentication.user ? Authentication.user.fullName : 'MEAN Fit';
+   }
 ]);
