@@ -54,13 +54,11 @@ module.exports = function() {
 	app.use(passport.initialize());
 	app.use(passport.session());
 
-	//get the routes
+	//routes
 
 	require('../app/routes/index.server.routes.js')(app);
-
-	//get the users routes
-
 	require('../app/routes/user.server.routes.js')(app);
+	require('../app/routes/journal.server.routes.js')(app);
 
 	//serve static files
 
