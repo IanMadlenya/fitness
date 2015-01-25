@@ -8,32 +8,14 @@
 	<body>
 
 		<div class="container">
-	            <!-- HEADER -->
             <nav class="navbar navbar-inverse">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">MEAN fitness</a>
                 </div>
-                <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Placeholder</a></li>
-                    <li><a href="/">Placeholder</a></li>
-                    <li><a href="/">Placeholder</a></li>
+                	
                 </ul>
             </nav>
-
-            <div class="row">
-
-				<% if(user) { %>
-					<a href="/signout" class="btn btn-default">Sign out</a>
-				<% } else { %>
-					
-					<a href="/signup" class="btn btn-default">Sign Up</a>
-					<a href="/signin" class="btn btn-default">Sign In</a>
-					<a href ="/oauth/google" class="btn btn-danger">Sign in with Google+</a>
-
-				<% } %>
-
-			</div>
 
 			<div class="row">
 
@@ -52,11 +34,23 @@
 			window.user = <%- user || 'null' %>;
 		</script>
 
+		<!--Load angular libs-->
 		<script type="text/javascript" src="/lib/angular/angular.js"></script>
 		<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+
+		<!--Load Journal Module-->
 		<script type="text/javascript" src="/js/journal/journal.client.module.js"></script>
 		<script type="text/javascript" src="/js/journal/controllers/journal.client.controller.js"></script>
+		<script type="text/javascript" src="/js/journal/services/journal.client.service.js"></script>
 		<script type="text/javascript" src="/js/journal/config/journal.client.routes.js"></script>
+
+		<!--Load example module-->
+		<script type="text/javascript" src="/js/example/example.client.module.js"></script><script type="text/javascript" src="/js/example/controllers/example.client.controller.js"></script>
+		<script type="text/javascript" src="/js/example/config/example.client.routes.js"></script>
+
+
+		<!--Load users module-->
 		<script type="text/javascript" src="/js/users/users.client.module.js"></script>
 		<script type="text/javascript" src="/js/users/services/authentication.client.service.js"></script>
 		<script type="text/javascript" src="/js/application.js"></script>

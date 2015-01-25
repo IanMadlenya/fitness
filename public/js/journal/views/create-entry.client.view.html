@@ -1,0 +1,34 @@
+<!-- The create article view -->
+<section data-ng-controller="JournalController">
+	<h1>New Exercise</h1>
+	<!-- The new article form -->
+	<form data-ng-submit="create()" novalidate>
+		<div>
+			<label for="exercise">Exercise</label>
+			<div>
+				<input type="text" data-ng-model="exercise" id="exercise" placeholder="Exercise" required>
+			</div>
+		</div>
+		<div>
+			<label for="reps">Reps</label>
+			<div>
+				<input data-ng-model="reps" id="reps"  placeholder="Reps" required>
+			</div>
+		</div>
+		<div>
+			<label for="weight">Weight</label>
+			<div>
+				<input data-ng-model="weight" id="weight"  placeholder="Weight" required>
+			</div>
+		</div>
+		<div>
+			<input type="submit">
+		</div>
+		<!-- The error message element -->
+		<div data-ng-show="error">
+			<strong data-ng-bind="error"></strong>
+		</div>
+	</form>
+
+	<a href="/" class="btn btn-primary">Home</a>
+</section>

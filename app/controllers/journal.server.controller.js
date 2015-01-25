@@ -62,8 +62,9 @@ exports.update = function(req, res) {
 	var journal = req.journal;
 
 	// Update the journal fields
-	journal.title = req.body.title;
-	journal.content = req.body.content;
+	journal.exercise = req.body.exercise;
+	journal.weight = req.body.weight;
+	journal.reps = req.body.reps;
 
 	// Try saving the updated journal
 	journal.save(function(err) {

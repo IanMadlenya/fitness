@@ -1,0 +1,27 @@
+<section data-ng-controller="JournalController" data-ng-init="findOne()">
+	<h1 data-ng-bind="journal.exercise"></h1>
+	<!-- Show the editing buttons to the article creator -->
+	<div data-ng-show="authentication.user._id == journal.creator._id">
+		<a href="/#!/journals/{{journal._id}}/edit" class="btn btn-primary">Edit</a>
+		<a href="/#!/" data-ng-click="delete();" class="btn btn-danger">Delete</a>
+	</div>
+	<small>
+		<em>Posted on</em>
+		<em data-ng-bind="journal.created | date:'mediumDate'"></em>
+		<em>by</em>
+		<em data-ng-bind="journal.creator.fullName"></em>
+	</small>
+
+	<h3>Reps</h3>
+	<p data-ng-bind="journal.reps"></p>
+
+
+	<h3>Weight</h3>
+	<p data-ng-bind="journal.weight"></p>
+
+
+
+	<a href="/#!/journals" class="btn btn-primary">View all exercises</a>
+	<a href="/#!/journals/create" class="btn btn-primary">Create a new entry...</a>
+	<a href="/" class="btn btn-primary">Home</a>
+</section>

@@ -1,0 +1,31 @@
+<section data-ng-controller="JournalController" data-ng-init="findOne()">
+	<h1>Edit Exercise</h1>
+	<form data-ng-submit="update()" novalidate>
+		<div>
+			<label for="exercise">Exercise</label>
+			<div>
+				<input type="text" data-ng-model="journal.exercise" id="exercise" placeholder="Exercise" required>
+			</div>
+		</div>
+		<div>
+			<label for="reps">Reps</label>
+			<div>
+				<input type="text" data-ng-model="journal.reps" id="reps" placeholder="Reps" required>
+			</div>
+		</div>
+		<div>
+			<label for="weight">Weight</label>
+			<div>
+				<input type="text" data-ng-model="journal.weight" id="weight" placeholder="Weight" required>
+			</div>
+		</div>
+		<div>
+			<input type="submit" value="Update">
+		</div>
+		<!-- The error message element -->
+		<div data-ng-show="error">
+			<strong data-ng-bind="error"></strong>
+		</div>
+	</form>
+	</div>
+</section>
