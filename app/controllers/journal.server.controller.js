@@ -38,7 +38,7 @@ exports.create = function(req, res) {
 // Create a new controller method that retrieves a list of journals
 exports.list = function(req, res) {
 	// Use the model 'find' method to get a list of journals
-	Journal.find().sort('-created').populate('creator', 'firstName lastName fullName').exec(function(err, journals) {
+	Journal.find( {'creator' : req.user.id } , function(err, journals) {
 		if (err) {
 			// If an error occurs send the error message
 			return res.status(400).send({

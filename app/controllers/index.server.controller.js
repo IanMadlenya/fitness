@@ -1,7 +1,7 @@
 exports.render = function( req, res ) {
 
 	res.render('index', {
-		title : 'Hello World',
+		title : 'MEAN Fitness',
 		user: JSON.stringify(req.user)
 	});
 };
