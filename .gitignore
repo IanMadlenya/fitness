@@ -34,3 +34,8 @@ config/env
 #bower install
 
 public/lib
+
+#sass cache
+
+*.sass-cache
+
