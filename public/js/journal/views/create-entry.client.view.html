@@ -1,34 +1,27 @@
 <!-- The create article view -->
 <section data-ng-controller="JournalController">
-	<h1>New Exercise</h1>
+	<h1>Add a new exercise!</h1>
 	<!-- The new article form -->
-	<form data-ng-submit="create()" novalidate>
-		<div>
-			<label for="exercise">Exercise</label>
-			<div>
-				<input type="text" data-ng-model="exercise" id="exercise" placeholder="Exercise" required>
+	<div class="col-md-4">
+		<form class="form-horizontal" data-ng-submit="create()" novalidate>
+			
+			<div class="form-group">
+				<input class="form-control" type="text" data-ng-model="exercise" id="exercise" placeholder="Exercise" required>
 			</div>
-		</div>
-		<div>
-			<label for="reps">Reps</label>
-			<div>
-				<input data-ng-model="reps" id="reps"  placeholder="Reps" required>
+			<div class="form-group">
+				<input class="form-control" data-ng-model="reps" id="reps"  placeholder="Reps" required>
 			</div>
-		</div>
-		<div>
-			<label for="weight">Weight</label>
-			<div>
-				<input data-ng-model="weight" id="weight"  placeholder="Weight" required>
+			<div class="form-group">
+				<input class="form-control" data-ng-model="weight" id="weight"  placeholder="Weight" required>
 			</div>
-		</div>
-		<div>
-			<input type="submit">
-		</div>
-		<!-- The error message element -->
-		<div data-ng-show="error">
-			<strong data-ng-bind="error"></strong>
-		</div>
-	</form>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success btn-lg">Add</button>
+			</div>
+			<!-- The error message element -->
+			<div data-ng-show="error">
+				<strong data-ng-bind="error"></strong>
+			</div>
+		</form>
 
-	<a href="/" class="btn btn-primary">Home</a>
+	</div>
 </section>

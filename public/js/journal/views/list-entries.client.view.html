@@ -1,18 +1,24 @@
 <section data-ng-controller="JournalController" data-ng-init="find()">
-	<h1>Exercises</h1>
-		<table>
-            <tr ng-repeat="journal in journals">
+	<h1>Here's what you've done so far...</h1>
+
+    <div class="search_box">
+        <h4>Search your exercises:</h4>
+        <div class="form-group">
+            <input type="text" placeholder="Search..." ng-model="search.exercise">
+        </div>
+    </div>
+
+		<table class="table table-striped">
+            <tr ng-repeat="journal in journals | filter:search">
                 <td>{{journal.exercise}}</td>
                 <td>{{journal.reps}}</td>
                 <td>{{journal.weight}}</td>
                 <td>{{journal.date}}</td>
-                <td><a href="/#!/journals/{{journal._id}}/edit" class="btn btn-primary">Edit</a></td>
+                <td><a href="/#!/journals/{{journal._id}}/edit" class="btn btn-default">Edit</a></td>
             </tr>
         </table>
 	<div data-ng-hide="!journals || journals.length">
 		No exercises yet, why don't you <a href="/#!/journals/create">create one</a>?
 	</div>
 
-
-    <a href="/#!/journals/create" class="btn btn-primary">Create a new entry...</a>
 </section>
