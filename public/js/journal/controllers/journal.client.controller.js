@@ -23,6 +23,25 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             });
         };
 
+        // Create a new controller method for resuming an exercise
+        $scope.resume = function() {
+            // Use the form fields to create a new journal $resource object
+            var journal = new Journals({
+                exercise: this.journal.exercise,
+                reps: this.journal.reps,
+                weight: this.journal.weight
+            });
+
+            // Use the journal '$save' method to send an appropriate POST request
+            journal.$save(function(response) {
+                // If a journal was created successfully, redirect the user to the journal's page
+                $location.path('journals/' + response._id);
+            }, function(errorResponse) {
+                // Otherwise, present the user with the error message
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
         // Create a new controller method for retrieving a list of journals
         $scope.find = function() {
             // Use the journal 'query' method to send an appropriate GET request
