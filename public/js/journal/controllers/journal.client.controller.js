@@ -88,5 +88,13 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
                 });
             }
         };
+
+        //Add 5 easily when resuming an exercise
+        $scope.addFive = function() {
+            
+            $scope.journal.weight = parseInt($scope.journal.weight, 10) + 5;
+
+            return $scope.journal.weight;
+        };
     }
 ]);
