@@ -8,25 +8,22 @@
 
 		<h3>Weight: <span data-ng-bind="journal.weight"></span></h3>
 
-		<div class="row">
-			<a href="/#!/journals/{{journal._id}}/edit" class="btn btn-primary btn-sm">Edit</a>
-			<a href="/#!/" data-ng-click="delete();" class="btn btn-danger btn-sm">Delete</a>
-		</div>
-
-		<small>
-			<em>Posted on</em>
-			<em data-ng-bind="journal.created | date:'mediumDate'"></em>
-			<em>by</em>
-			<em data-ng-bind="journal.creator.fullName"></em>
-		</small>
 
 		<div class="row">
-			<a href="/#!/journals/{{journal._id}}/resume" class="btn btn-primary btn-lg">Do another <span data-ng-bind="journal.exercise"></span></a>
+			<a href="/#!/journals/{{journal._id}}/resume" class="btn btn-primary btn-action">Do another <span data-ng-bind="journal.exercise"></span></a>
 		</div>
 
 		<div class="row">
-			<a href="/#!/journals" class="btn btn-default btn-lg">View all exercises</a>
-			<a href="/#!/journals/create" class="btn btn-default btn-lg">Create a new entry...</a>
+			<a href="/#!/journals/{{journal._id}}/edit" class="btn btn-default btn-action">Edit</a>
 		</div>
+
+		<div class="row">
+			<a href="/#!/" data-ng-click="delete();" class="btn btn-danger btn-action">Delete</a>
+		</div>
+
+		<div class="row">
+			<a href="/#!/journals" class="btn btn-default btn-action">View all Exercises</a>
+		</div>
+
 	</div>
 </section>
