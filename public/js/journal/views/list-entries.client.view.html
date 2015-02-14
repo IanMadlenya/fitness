@@ -9,7 +9,12 @@
     </div>
 
 		<table class="table table-striped">
-            <tr ng-repeat="journal in journals | filter:search">
+             <tr>
+                <th><a href="" ng-click="reverse = predicate == 'exercise' && !reverse; predicate = 'exercise'">Exercise<b class="caret"></b></a></th>
+                <th>Reps</th>
+                <th><a href="" ng-click="reverse = predicate == 'weight' && !reverse; predicate = 'weight'">Weight<b class="caret"></b></a></th>
+            </tr>
+            <tr ng-repeat="journal in journals | filter:search | orderBy:predicate:reverse">
                 <td>{{journal.exercise}}</td>
                 <td>{{journal.reps}}</td>
                 <td>{{journal.weight}}</td>
