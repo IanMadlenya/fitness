@@ -21,6 +21,6 @@ module.exports = {
 	google: {
 		clientID: process.env.GOOG_CLIENT_ID,
 		clientSecret: process.env.GOOG_CLIENT_SECRET,
-		callbackURL: 'http://localhost:3000/oauth/google/callback'
+		callbackURL: 'http://fitness.dewittdeveloper.com/oauth/google/callback'
 	}
 };
