@@ -11,8 +11,8 @@ environment variable to determine which config file to load.
 
 module.exports = {
 
-	//These are confog vars set in Heroku...
-	
+	//These are config vars set in Heroku...
+
 	db: process.env.DATABASE,
 	sessionSecret : process.env.SESSION_SECRET,
 
