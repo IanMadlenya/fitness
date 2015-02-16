@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title><%= title %></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 		<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/stylesheets/css/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -10,7 +10,6 @@
 
 	<body>
 
-		<div class="container">
             <nav class="navbar navbar-inverse">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">MEAN fitness</a>
@@ -20,18 +19,10 @@
                 </ul>
             </nav>
 
-		
-			<div class="row">
+	
 
-				<section ng-view></section>
+			<section class="container" ng-view></section>
 
-			</div>
-
-
-		</div>
-
-
-		
 
 
 		<script type="text/javascript">
