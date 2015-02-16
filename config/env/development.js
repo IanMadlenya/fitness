@@ -19,10 +19,16 @@ module.exports = {
 	sessionSecret : process.env.SESSION_SECRET,
 
 	//For Oauth...
-	//You'd add other social media accounts (FB, Twitter) here, too...
 	google: {
 		clientID: process.env.GOOG_CLIENT_ID,
 		clientSecret: process.env.GOOG_CLIENT_SECRET,
 		callbackURL: 'http://localhost:3000/oauth/google/callback'
+	},
+
+	facebook: {
+		clientID: process.env.FB_CLIENT_ID,
+		clientSecret: process.env.FB_CLIENT_SECRET,
+		callbackURL: 'http://localhost:3000/oauth/facebook/callback',
+		enableProof: true
 	}
 };

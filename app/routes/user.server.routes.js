@@ -18,6 +18,8 @@ module.exports = function(app) {
 
 	app.get('/signout', users.signout);
 
+	//Set up Google+ Oauth routes
+
 	app.get('/oauth/google', passport.authenticate('google', {
 		failureRedirect: '/signin',
 		scope: [
@@ -28,6 +30,17 @@ module.exports = function(app) {
 
 	app.get('/oauth/google/callback', passport.authenticate('google', {
 		failureRedirect: 'signin',
+		successRedirect: '/'
+	}));
+
+	//Set up Facebook Oauth routes
+
+	app.get('/oauth/facebook', passport.authenticate('facebook', {
+		scope: ['email']
+	}));
+
+	app.get('/oauth/facebook/callback', passport.authenticate('facebook', {
+		failureRedirect: '/signin',
 		successRedirect: '/'
 	}));
 };
