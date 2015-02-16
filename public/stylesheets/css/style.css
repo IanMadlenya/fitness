@@ -3,7 +3,25 @@ body {
 
 .btn-action {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   margin: 10px 0;
   font-size: 2.75rem;
   text-transform: uppercase; }
+
+/************************
+//Import Breakpoints
+*************************/
+/*Base stylesheet*/
+.edit {
+  display: none; }
+
+@media (min-width: 481px) {
+  /*481px and up stylesheet*/
+  .edit {
+    display: inline-block; } }
+@media (min-width: 768px) {
+  /*768px and up stylesheet*/ }
+@media (min-width: 1030px) {
+  /*1030px and up stylesheet*/ }
+@media (min-width: 1240px) {
+  /*1240px and up stylesheet*/ }
