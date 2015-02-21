@@ -62,6 +62,7 @@ exports.update = function(req, res) {
 	var journal = req.journal;
 
 	// Update the journal fields
+	journal.sets = req.body.sets
 	journal.exercise = req.body.exercise;
 	journal.weight = req.body.weight;
 	journal.reps = req.body.reps;

@@ -13,14 +13,16 @@
 		<table class="table table-striped">
              <tr>
                 <th><a href="" ng-click="reverse = predicate == 'exercise' && !reverse; predicate = 'exercise'">Exercise<b class="caret"></b></a></th>
+                <th>Sets</th>
                 <th>Reps</th>
                 <th><a href="" ng-click="reverse = predicate == 'weight' && !reverse; predicate = 'weight'">Weight<b class="caret"></b></a></th>
             </tr>
             <tr ng-repeat="journal in journals | filter:search | orderBy:predicate:reverse">
                 <td>{{journal.exercise}}</td>
+                <td>{{journal.sets}}</td>
                 <td>{{journal.reps}}</td>
                 <td>{{journal.weight}}</td>
-                <td>{{journal.date}}</td>
+                <td>{{journal.created | date:'mediumDate'}}</td>
                 <td><a href="/#!/journals/{{journal._id}}/edit" class="btn btn-default edit">Edit</a></td>
                 <td><a href="/#!/journals/{{journal._id}}/resume" class="btn btn-default">Resume</a></td>
             </tr>

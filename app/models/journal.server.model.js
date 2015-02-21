@@ -14,6 +14,11 @@ var JournalSchema = new Schema({
 		trim: true,
 		required: 'Exercise cannot be blank'
 	},
+	sets: {
+		type: String,
+		default: '',
+		trim: true
+	},
 	reps: {
 		type: String,
 		default: '',

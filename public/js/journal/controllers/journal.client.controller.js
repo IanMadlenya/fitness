@@ -9,6 +9,7 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             // Use the form fields to create a new journal $resource object
             var journal = new Journals({
                 exercise: this.exercise,
+                sets: this.sets,
                 reps: this.reps,
                 weight: this.weight
             });
@@ -28,6 +29,7 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             // Use the form fields to create a new journal $resource object
             var journal = new Journals({
                 exercise: this.journal.exercise,
+                sets: this.journal.sets,
                 reps: this.journal.reps,
                 weight: this.journal.weight
             });
@@ -95,6 +97,14 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             $scope.journal.weight = parseInt($scope.journal.weight, 10) + weight;
 
             return $scope.journal.weight;
+        };
+
+        //Add sets easily when resuming/creating an exercise
+        $scope.incrementSets = function() {
+            
+            $scope.journal.sets = parseInt($scope.journal.sets, 10) + 1;
+
+            return $scope.journal.sets;
         };
     }
 ]);
