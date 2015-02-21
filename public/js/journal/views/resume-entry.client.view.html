@@ -18,7 +18,13 @@
 				<div class="form-group">
 					<label for="weight">Weight</label>
 
-					<button ng-click="addFive()" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span> Add 5 lbs</button>
+					<button ng-click="incrementWeight(3)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>3 lbs</button>
+
+					<button ng-click="incrementWeight(5)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>5 lbs</button>
+
+					<button ng-click="incrementWeight(10)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>10 lbs</button>
+
+					<button ng-click="incrementWeight(25)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>25 lbs</button>
 
 					<div>
 						<input class="form-control" type="text" data-ng-model="journal.weight" id="weight" placeholder="Weight" required>

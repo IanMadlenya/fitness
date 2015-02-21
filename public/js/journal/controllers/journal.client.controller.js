@@ -89,10 +89,10 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             }
         };
 
-        //Add 5 easily when resuming an exercise
-        $scope.addFive = function() {
+        //Add weight easily when resuming an exercise
+        $scope.incrementWeight = function(weight) {
             
-            $scope.journal.weight = parseInt($scope.journal.weight, 10) + 5;
+            $scope.journal.weight = parseInt($scope.journal.weight, 10) + weight;
 
             return $scope.journal.weight;
         };
