@@ -17,7 +17,7 @@
                 <th>Reps</th>
                 <th><a href="" ng-click="reverse = predicate == 'weight' && !reverse; predicate = 'weight'">Weight<b class="caret"></b></a></th>
             </tr>
-            <tr ng-repeat="journal in journals | filter:search | orderBy:predicate:reverse">
+            <tr ng-repeat="journal in journals | filter:search | orderBy:predicate:reverse | unique:'exercise'">
                 <td>{{journal.exercise}}</td>
                 <td>{{journal.sets}}</td>
                 <td>{{journal.reps}}</td>

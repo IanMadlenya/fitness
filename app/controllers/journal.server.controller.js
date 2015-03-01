@@ -35,7 +35,7 @@ exports.create = function(req, res) {
 	});
 };
 
-// Create a new controller method that retrieves a list of journals
+// Create a new controller method that retrieves a list of distinct exercises
 exports.list = function(req, res) {
 	// Use the model 'find' method to get a list of journals
 	Journal.find( {'creator' : req.user.id } , function(err, journals) {
@@ -100,7 +100,7 @@ exports.delete = function(req, res) {
 	});
 };
 
-// Create a new controller middleware that retrieves a single existing journal
+// Create a new controller middleware that retrieves a single existing exercise
 exports.journalByID = function(req, res, next, id) {
 	// Use the model 'findById' method to find a single journal 
 	Journal.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err, journal) {

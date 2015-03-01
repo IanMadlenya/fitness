@@ -7,6 +7,7 @@
 		"animate.css": "latest",
 		"angular": "~1.2",
 		"angular-route": "~1.2",
-		"angular-resource": "~1.2"
+		"angular-resource": "~1.2",
+		"angular-ui": "~0.4.0"
 	}
 }
