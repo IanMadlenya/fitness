@@ -37,8 +37,18 @@ exports.create = function(req, res) {
 
 // Create a new controller method that retrieves a list of distinct exercises
 exports.list = function(req, res) {
-	// Use the model 'find' method to get a list of journals
-	Journal.find( {'creator' : req.user.id } , function(err, journals) {
+
+	if(req.query.exercise_slug) {
+
+		var query = {'creator' : req.user.id, 'exercise_slug' : req.query.exercise_slug };
+	
+	} else {
+		
+		var query = {'creator' : req.user.id }
+		
+	} 
+
+	Journal.find( query , function(err, journals) {
 		if (err) {
 			// If an error occurs send the error message
 			return res.status(400).send({
@@ -114,6 +124,7 @@ exports.journalByID = function(req, res, next, id) {
 		next();
 	});
 };
+
 
 // Create a new controller middleware that is used to authorize a journal operation 
 exports.hasAuthorization = function(req, res, next) {

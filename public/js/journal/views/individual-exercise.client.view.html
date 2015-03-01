@@ -1,0 +1,24 @@
+
+<section data-ng-controller="JournalController" data-ng-init="findExercisesByName()">
+	<h1>Here's what you've done so far...</h1>
+
+		<table class="table table-striped">
+             <tr>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Weight</th>
+                <th>Date</th>
+            </tr>
+            <tr ng-repeat="journal in journals | orderBy:created">
+                <td>{{journal.sets}}</td>
+                <td>{{journal.reps}}</td>
+                <td>{{journal.weight}}</td>
+                <td>{{journal.created | date:'mediumDate'}}</td>
+                <td><a href="/#!/journals/{{journal._id}}/resume" class="btn btn-default btn-sm">Resume</a></td>
+            </tr>
+        </table>
+	<div data-ng-hide="!journals || journals.length">
+		No exercises yet, why don't you <a href="/#!/journals/create">create one</a>?
+	</div>
+
+</section>

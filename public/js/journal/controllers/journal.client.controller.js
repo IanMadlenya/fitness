@@ -9,6 +9,7 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             // Use the form fields to create a new journal $resource object
             var journal = new Journals({
                 exercise: this.exercise,
+                exercise_slug: this.exercise.replace(/\s+/g, '-').toLowerCase(),
                 sets: this.sets,
                 reps: this.reps,
                 weight: this.weight
@@ -29,6 +30,7 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             // Use the form fields to create a new journal $resource object
             var journal = new Journals({
                 exercise: this.journal.exercise,
+                exercise_slug: this.journal.exercise.replace(/\s+/g, '-').toLowerCase(),
                 sets: this.journal.sets,
                 reps: this.journal.reps,
                 weight: this.journal.weight
@@ -50,11 +52,19 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             $scope.journals = Journals.query();
         };
 
-        // Create a new controller method for retrieving a single journal
+        // Create a new controller method for retrieving a single exercise
         $scope.findOne = function() {
             // Use the journal 'get' method to send an appropriate GET request
             $scope.journal = Journals.get({
                 journalId: $routeParams.journalId
+            });
+        };
+
+        // Create a new controller method for retrieving a group of exercises by name
+        $scope.findExercisesByName = function() {
+            // Use the journal 'get' method to send an appropriate GET request
+            $scope.journals = Journals.query({
+                exercise_slug: $routeParams.exercise_slug
             });
         };
 

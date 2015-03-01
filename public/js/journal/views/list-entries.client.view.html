@@ -19,7 +19,7 @@
                 <th>You last did this on:</th>
             </tr>
             <tr ng-repeat="journal in journals | filter:search | orderBy:predicate:reverse | unique:'exercise'">
-                <td>{{journal.exercise}}</td>
+                <td><a href="/#!/individual-exercise/{{journal.exercise_slug}}">{{journal.exercise}}</a></td>
                 <td>{{journal.created | date:'EEEE MMMM d'}}</td>
                 <!--<td><a href="/#!/journals/{{journal._id}}/resume" class="btn btn-default">Resume</a></td>-->
             </tr>
