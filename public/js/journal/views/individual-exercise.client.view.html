@@ -1,7 +1,8 @@
 
 <section data-ng-controller="JournalController" data-ng-init="findExercisesByName()">
-	<h1>Here's what you've done so far...</h1>
-
+	<h1>Here are your entries for {{journals[0].exercise}}</h1>
+    <h3>You last did this on {{journals[journals.length-1].created | date:'EEEE MMMM d'}}</h3>
+    <p>Hit "resume" to create a NEW entry retaining the reps and weight from whatever you select...</p>
 		<table class="table table-striped">
              <tr>
                 <th>Sets</th>
@@ -13,7 +14,7 @@
                 <td>{{journal.sets}}</td>
                 <td>{{journal.reps}}</td>
                 <td>{{journal.weight}}</td>
-                <td>{{journal.created | date:'mediumDate'}}</td>
+                <td>{{journal.created | date:'EEEE MMMM d'}}</td>
                 <td><a href="/#!/journals/{{journal._id}}/resume" class="btn btn-default btn-sm">Resume</a></td>
             </tr>
         </table>
