@@ -16,7 +16,7 @@ var JournalSchema = new Schema({
 	},
 	exercise_slug: {
 		type: String,
-		default: ''
+		default: 'undefined'
 	},
 	sets: {
 		type: String,
@@ -37,6 +37,10 @@ var JournalSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	}
+});
+
+JournalSchema.post( 'init', function() {
+	this.exercise_slug = this.exercise.replace(/\s+/g, '-').toLowerCase();
 });
 
 // Create the 'Journal' model out of the 'JournalSchema'
