@@ -39,9 +39,5 @@ var JournalSchema = new Schema({
 	}
 });
 
-JournalSchema.post( 'init', function() {
-	this.exercise_slug = this.exercise.replace(/\s+/g, '-').toLowerCase();
-});
-
 // Create the 'Journal' model out of the 'JournalSchema'
 mongoose.model('Journal', JournalSchema);
