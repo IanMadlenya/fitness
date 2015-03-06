@@ -9,6 +9,7 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             // Use the form fields to create a new journal $resource object
             var journal = new Journals({
                 exercise: this.exercise,
+                exercise_slug: this.exercise.replace(/\s+/g, '-').toLowerCase(),
                 sets: this.sets,
                 reps: this.reps,
                 weight: this.weight
@@ -29,6 +30,7 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
             // Use the form fields to create a new journal $resource object
             var journal = new Journals({
                 exercise: this.journal.exercise,
+                exercise_slug: this.journal.exercise.replace(/\s+/g, '-').toLowerCase(),
                 sets: this.journal.sets,
                 reps: this.journal.reps,
                 weight: this.journal.weight

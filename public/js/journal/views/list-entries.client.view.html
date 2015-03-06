@@ -23,7 +23,7 @@
                 <td>{{journal.reps}}</td>
                 <td>{{journal.weight}}</td>
                 <td class="date_created">{{journal.created | date:'mediumDate'}}</td>
-                <td><a href="/#!/journals/{{journal._id}}/edit" class="btn btn-default edit">Edit</a></td>
+                <td>{{journal.exercise_slug}}</td>
                 <td><a href="/#!/journals/{{journal._id}}/resume" class="btn btn-default">Resume</a></td>
             </tr>
         </table>
