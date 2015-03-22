@@ -15,6 +15,8 @@ module.exports = function(app) {
 	   .put(users.requiresLogin, journals.hasAuthorization, journals.update)
 	   .delete(users.requiresLogin, journals.hasAuthorization, journals.delete);
 
+
 	// Set up the 'journalId' parameter middleware   
-	app.param('journalId', journals.journalByID);
+	app.param('journalId', journals.journalByID);  
+
 };

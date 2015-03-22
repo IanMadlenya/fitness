@@ -1,7 +1,10 @@
 <section data-ng-controller="JournalController" data-ng-init="find()">
-	<h1>Here's what you've done so far...</h1>
+	<h1>Here is a list of the exercises you've done</h1>
 
-    <a class="btn btn-success" href="/#!/journals/create">Create a new entry</a>
+    <div class="row">
+        <p>Select an individual exercise to see a more detailed history and pick up where you left off, or:
+            <a class="btn btn-success" href="/#!/journals/create">Create a new exercise</a>
+        </p>
 
     <div class="search_box">
         <h4>Search your exercises:</h4>
@@ -13,18 +16,12 @@
 		<table class="table table-striped">
              <tr>
                 <th><a href="" ng-click="reverse = predicate == 'exercise' && !reverse; predicate = 'exercise'">Exercise<b class="caret"></b></a></th>
-                <th>Sets</th>
-                <th>Reps</th>
-                <th><a href="" ng-click="reverse = predicate == 'weight' && !reverse; predicate = 'weight'">Weight<b class="caret"></b></a></th>
+                <th>You last did this on:</th>
             </tr>
-            <tr ng-repeat="journal in journals | filter:search | orderBy:predicate:reverse">
-                <td>{{journal.exercise}}</td>
-                <td>{{journal.sets}}</td>
-                <td>{{journal.reps}}</td>
-                <td>{{journal.weight}}</td>
-                <td class="date_created">{{journal.created | date:'mediumDate'}}</td>
-                <td>{{journal.exercise_slug}}</td>
-                <td><a href="/#!/journals/{{journal._id}}/resume" class="btn btn-default">Resume</a></td>
+            <tr ng-repeat="journal in journals | filter:search | orderBy:predicate:reverse | unique:'exercise'">
+                <td ng-show="journal.exercise_slug != 'no-slug'"><a href="/#!/individual-exercise/{{journal.exercise_slug}}">
+                {{journal.exercise}}</a></td>
+                <td ng-show="journal.exercise_slug != 'no-slug'">{{journal.created | date:'EEEE MMMM d'}}</td>
             </tr>
         </table>
 	<div data-ng-hide="!journals || journals.length">

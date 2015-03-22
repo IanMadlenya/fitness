@@ -16,6 +16,9 @@ angular.module('journal').config(['$routeProvider',
 		}).
 		when('/journals/:journalId/resume', {
 			templateUrl: 'js/journal/views/resume-entry.client.view.html'
+		}).
+		when('/individual-exercise/:exercise_slug', {
+			templateUrl: 'js/journal/views/individual-exercise.client.view.html'
 		});
 	}
 ]); 

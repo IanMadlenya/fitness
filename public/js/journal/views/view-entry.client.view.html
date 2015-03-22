@@ -1,7 +1,7 @@
 <section data-ng-controller="JournalController" data-ng-init="findOne()">
 	<div class="text-center">
 		<h1>Way to go!</h1>
-		<h3 data-ng-bind="journal.exercise"></h3>
+		<a href="/#!/individual-exercise/{{journal.exercise_slug}}"><h3 data-ng-bind="journal.exercise"></h3></a>
 
 		<h3>Sets: <span data-ng-bind="journal.sets"></span></h3>
 

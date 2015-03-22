@@ -35,10 +35,20 @@ exports.create = function(req, res) {
 	});
 };
 
-// Create a new controller method that retrieves a list of journals
+// Create a new controller method that retrieves a list of distinct exercises
 exports.list = function(req, res) {
-	// Use the model 'find' method to get a list of journals
-	Journal.find( {'creator' : req.user.id } , function(err, journals) {
+
+	if(req.query.exercise_slug) {
+
+		var query = {'creator' : req.user.id, 'exercise_slug' : req.query.exercise_slug };
+	
+	} else {
+		
+		var query = {'creator' : req.user.id }
+		
+	} 
+
+	Journal.find( query , function(err, journals) {
 		if (err) {
 			// If an error occurs send the error message
 			return res.status(400).send({
@@ -100,7 +110,7 @@ exports.delete = function(req, res) {
 	});
 };
 
-// Create a new controller middleware that retrieves a single existing journal
+// Create a new controller middleware that retrieves a single existing exercise
 exports.journalByID = function(req, res, next, id) {
 	// Use the model 'findById' method to find a single journal 
 	Journal.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err, journal) {
@@ -114,6 +124,7 @@ exports.journalByID = function(req, res, next, id) {
 		next();
 	});
 };
+
 
 // Create a new controller middleware that is used to authorize a journal operation 
 exports.hasAuthorization = function(req, res, next) {
