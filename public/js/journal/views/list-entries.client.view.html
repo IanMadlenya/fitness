@@ -17,7 +17,7 @@
             <th>Exercise</th>
             <th>You last did this on:</th>
         </tr>
-        <tr ng-repeat="journal in journals | filter:search | unique:'exercise'">
+        <tr ng-repeat="journal in journals | filter:search">
             <td ng-show="journal.exercise_slug != 'no-slug'"><a href="/#!/individual-exercise/{{journal.exercise_slug}}">
             {{journal.exercise}}</a></td>
             <td ng-show="journal.exercise_slug != 'no-slug'">{{journal.created | date:'EEEE MMMM d'}}</td>
