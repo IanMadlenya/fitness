@@ -14,10 +14,10 @@
 
 	<table class="table table-striped">
          <tr>
-            <th><a href="" ng-click="reverse = predicate == 'exercise' && !reverse; predicate = 'exercise'">Exercise<b class="caret"></b></a></th>
+            <th>Exercise</th>
             <th>You last did this on:</th>
         </tr>
-        <tr ng-repeat="journal in journals | filter:search | orderBy:predicate:reverse | unique:'exercise'">
+        <tr ng-repeat="journal in journals | filter:search | unique:'exercise'">
             <td ng-show="journal.exercise_slug != 'no-slug'"><a href="/#!/individual-exercise/{{journal.exercise_slug}}">
             {{journal.exercise}}</a></td>
             <td ng-show="journal.exercise_slug != 'no-slug'">{{journal.created | date:'EEEE MMMM d'}}</td>
