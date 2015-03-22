@@ -19,9 +19,9 @@
                 <th>You last did this on:</th>
             </tr>
             <tr ng-repeat="journal in journals | filter:search | orderBy:predicate:reverse | unique:'exercise'">
-                <td><a href="/#!/individual-exercise/{{journal.exercise_slug}}">{{journal.exercise}}</a></td>
-                <td>{{journal.created | date:'EEEE MMMM d'}}</td>
-                <!--<td><a href="/#!/journals/{{journal._id}}/resume" class="btn btn-default">Resume</a></td>-->
+                <td ng-show="journal.exercise_slug != 'no-slug'"><a href="/#!/individual-exercise/{{journal.exercise_slug}}">
+                {{journal.exercise}}</a></td>
+                <td ng-show="journal.exercise_slug != 'no-slug'">{{journal.created | date:'EEEE MMMM d'}}</td>
             </tr>
         </table>
 	<div data-ng-hide="!journals || journals.length">

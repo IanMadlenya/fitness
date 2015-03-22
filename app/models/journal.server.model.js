@@ -16,7 +16,7 @@ var JournalSchema = new Schema({
 	},
 	exercise_slug: {
 		type: String,
-		default: 'undefined'
+		default: 'no-slug'
 	},
 	sets: {
 		type: String,
