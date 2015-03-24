@@ -10,7 +10,7 @@
                 <th>Weight</th>
                 <th>Date</th>
             </tr>
-            <tr ng-repeat="journal in journals | orderBy:created">
+            <tr ng-repeat="journal in journals | orderBy:'created':true">
                 <td>{{journal.sets}}</td>
                 <td>{{journal.reps}}</td>
                 <td>{{journal.weight}}</td>
