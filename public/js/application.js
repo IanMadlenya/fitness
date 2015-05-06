@@ -11,7 +11,7 @@ mainApplicationModule.config(['$locationProvider',
 
 //fixes facebook OAuth redirect bug
 
-if (window.location.hash === '#_=_') window.location.hash = '#!';
+if (window.location.hash === '#_=_' || window.location.hash === '#' ) window.location.hash = '#!';
 
 
 angular.element(document).ready(function() {
