@@ -4,6 +4,8 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
         // Expose the Authentication service
         $scope.authentication = Authentication;
 
+        $scope.contentLoaded = false;
+
         // Create a new controller method for creating new journals
         $scope.create = function() {
             // Use the form fields to create a new journal $resource object
@@ -50,6 +52,7 @@ angular.module('journal').controller('JournalController', ['$scope', '$routePara
         $scope.find = function() {
             // Use the journal 'query' method to send an appropriate GET request
             $scope.journals = Journals.query();
+            $scope.contentLoaded = true;
         };
 
         // Create a new controller method for retrieving a single exercise
