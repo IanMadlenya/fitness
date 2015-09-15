@@ -21,13 +21,13 @@ module.exports = {
 	google: {
 		clientID: process.env.GOOG_CLIENT_ID,
 		clientSecret: process.env.GOOG_CLIENT_SECRET,
-		callbackURL: 'http://fitness.dewittdeveloper.com/oauth/google/callback'
+		callbackURL: 'http://fitness.devdewitt.com/oauth/google/callback'
 	},
 
 	facebook: {
 		clientID: process.env.FB_CLIENT_ID,
 		clientSecret: process.env.FB_CLIENT_SECRET,
-		callbackURL: 'http://fitness.dewittdeveloper.com/oauth/facebook/callback',
+		callbackURL: 'http://fitness.devdewitt.com/oauth/facebook/callback',
 		enableProof: true
 	}
 };
