@@ -11,7 +11,7 @@
             <input type="text" placeholder="Search..." ng-model="search.exercise">
         </div>
     </div>
-
+    <h1 ng-if="!journals">LOADING...</h1>
 	<table class="table table-striped">
          <tr>
             <th>Exercise</th>
@@ -24,7 +24,7 @@
         </tr>
     </table>
     
-	<div data-ng-hide="!journals || journals.length">
+	<div ng-if="journals.length === 0">
 		No exercises yet, why don't you <a href="/#!/journals/create">create one</a>?
 	</div>
 
