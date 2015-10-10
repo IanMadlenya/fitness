@@ -1,4 +1,3 @@
-// Create the 'home' controller
 angular.module('home').controller('ExampleController', ['$scope', 'Authentication',
 	function($scope, Authentication) {
 		// Expose the authentication service

@@ -1,4 +1,3 @@
-// Configure the 'about' module routes
 angular.module('about').config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.

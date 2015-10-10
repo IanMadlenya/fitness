@@ -1,4 +1,3 @@
-// Configure the 'home' module routes
 angular.module('home').config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.

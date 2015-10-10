@@ -1,4 +1,3 @@
-// Configure the 'journals' module routes
 angular.module('journal').config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.

@@ -5,5 +5,3 @@ exports.render = function( req, res ) {
 		user: JSON.stringify(req.user)
 	});
 };
-
-//this is a test

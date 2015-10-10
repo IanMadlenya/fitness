@@ -1,14 +1,9 @@
 // Gruntfile.js//
 module.exports = function(grunt) {
     grunt.initConfig({
-        // JS TASKS ================================================================
-        // check all js files for errors
         jshint: {
             all: ['public/js/**/*.js']
         },
-
-        //Compile Sass
-
         sass: {
             dist: {
                 files: {
@@ -16,9 +11,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
-        // COOL TASKS ==============================================================
-        // watch css and js files and process the above tasks
         watch: {
             js: {
                 files: ['public/js/**/*.js'],
@@ -50,5 +42,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
+
     grunt.registerTask('default', ['jshint', 'concurrent']);
 };
