@@ -1,6 +1,5 @@
-angular.module('home').config(['$routeProvider',
-	function($routeProvider) {
-		$routeProvider.
+angular.module('home').config(function homeRoutes($routeProvider) {
+	$routeProvider.
 		when('/', {
 			templateUrl: 'js/home/views/home.client.view.html'
 		}).
@@ -8,4 +7,4 @@ angular.module('home').config(['$routeProvider',
 			redirectTo: '/'
 		});
 	}
-]);
+);

@@ -1,6 +1,6 @@
-<section ng-controller="ExampleController">
+<section ng-controller="HomeController as vm">
 	<!-- If the user is not authenticated show the authentication link -->
-	<div data-ng-show="!authentication.user">
+	<div ng-show="!vm.authentication.user">
 
 		<div class="jumbotron">
       		<div class="container">
@@ -20,10 +20,10 @@
     	</div>
 	</div>
 	<!-- Otherwise, show the user details and application links -->
-	<div data-ng-show="authentication.user">
+	<div ng-show="vm.authentication.user">
 		<div class="jumbotron">
       		<div class="container">
-       			<h1>Hey <span data-ng-bind="authentication.user.firstName"></span>!</h1>
+       			<h1>Hey <span ng-bind="vm.authentication.user.firstName"></span>!</h1>
         		
         		<p>Your goals are eagerly awaiting you. Get started by <a href="/#!/journals">viewing all your exercises</a> or <a href="/#!/journals/create">creating a new entry</a>.</p>
 

@@ -1,4 +1,4 @@
-<section data-ng-controller="JournalController" data-ng-init="find()">
+<section>
 	<h1>Here is a list of the exercises you've done</h1>
 
     <p>Select an individual exercise to see a more detailed history and pick up where you left off, or:
@@ -8,25 +8,23 @@
     <div class="search_box">
         <h4>Search your exercises:</h4>
         <div class="form-group">
-            <input type="text" placeholder="Search..." ng-model="search.exercise">
+            <input type="text" placeholder="Search..." ng-model="vm.search.exercise">
         </div>
     </div>
-
-    <h1 ng-hide="contentLoaded">LOADING...</h1>
 
 	<table class="table table-striped">
          <tr>
             <th>Exercise</th>
             <th>You last did this on:</th>
         </tr>
-        <tr ng-repeat="journal in journals | filter:search | orderBy:'created':true | unique: 'exercise'" >
+        <tr ng-repeat="journal in vm.journals | filter:search | orderBy:'created':true | unique: 'exercise'" >
             <td ng-show="journal.exercise_slug != 'no-slug'"><a href="/#!/individual-exercise/{{journal.exercise_slug}}">
-            {{journal.exercise}}</a></td>
-            <td ng-show="journal.exercise_slug != 'no-slug'">{{journal.created | date:'EEEE MMMM d'}}</td>
+            {{::journal.exercise}}</a></td>
+            <td ng-show="journal.exercise_slug != 'no-slug'">{{::journal.created | date:'EEEE MMMM d'}}</td>
         </tr>
     </table>
     
-	<div ng-show="!journals && contentLoaded">
+	<div ng-show="!vm.journals && vm.contentLoaded">
 		No exercises yet, why don't you <a href="/#!/journals/create">create one</a>?
 	</div>
 

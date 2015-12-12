@@ -3,11 +3,10 @@ var mainApplicationModuleName = 'mean';
 var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource', 'ngRoute', 'ui', 'ui.filters', 'users', 'home', 'about', 'journal']);
 
 
-mainApplicationModule.config(['$locationProvider',
-    function($locationProvider) {
+mainApplicationModule.config(function appConfig($locationProvider) {
         $locationProvider.hashPrefix('!');
     }
-]);
+);
 
 //fixes facebook OAuth redirect bug
 
