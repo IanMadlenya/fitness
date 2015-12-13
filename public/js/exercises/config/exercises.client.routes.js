@@ -19,8 +19,8 @@ angular.module('exercises').config(function exerciseRoutes($routeProvider) {
 			resolve: {
 				reviewExerciseData: function($route, ExercisesApi) {
 					return ExercisesApi.get({
-            			exerciseId: $route.current.params.exerciseId
-            		}).$promise;
+						exerciseId: $route.current.params.exerciseId
+					}).$promise;
 				}
 			}
 		}).
@@ -38,8 +38,8 @@ angular.module('exercises').config(function exerciseRoutes($routeProvider) {
 			resolve: {
 				individualExerciseData: function($route, ExercisesApi) {
 					return ExercisesApi.query({
-                		exercise_slug: $route.current.params.exercise_slug
-           			});
+						exercise_slug: $route.current.params.exercise_slug
+					});
 				}
 			}
 		});
