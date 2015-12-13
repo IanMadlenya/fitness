@@ -1,0 +1,25 @@
+
+<section>
+	<h1>Here are your entries for {{::vm.exerciseData[0].exercise}}</h1>
+    <h3>You last did this on {{::vm.exerciseData[vm.exerciseData.length-1].created | date:'EEEE MMMM d'}}</h3>
+    <p>Hit "resume" to create a NEW entry retaining the reps and weight from whatever you select...</p>
+		<table class="table table-striped">
+             <tr>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Weight</th>
+                <th>Date</th>
+            </tr>
+            <tr ng-repeat="individualExercise in vm.exerciseData | orderBy:'created':true">
+                <td>{{::individualExercise.sets}}</td>
+                <td>{{::individualExercise.reps}}</td>
+                <td>{{::individualExercise.weight}}</td>
+                <td>{{::individualExercise.created | date:'EEEE MMMM d'}}</td>
+                <td><a href="/#!/exercises/{{individualExercise._id}}/resume" class="btn btn-default btn-xs">Resume</a></td>
+            </tr>
+        </table>
+	<div ng-hide="!vm.individualExercise || vm.individualExercise.length">
+		No exercises yet, why don't you <a href="/#!/exercises/create">create one</a>?
+	</div>
+
+</section>

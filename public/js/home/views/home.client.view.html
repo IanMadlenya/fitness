@@ -1,4 +1,4 @@
-<section ng-controller="HomeController as vm">
+<section>
 	<!-- If the user is not authenticated show the authentication link -->
 	<div ng-show="!vm.authentication.user">
 
@@ -25,7 +25,7 @@
       		<div class="container">
        			<h1>Hey <span ng-bind="vm.authentication.user.firstName"></span>!</h1>
         		
-        		<p>Your goals are eagerly awaiting you. Get started by <a href="/#!/journals">viewing all your exercises</a> or <a href="/#!/journals/create">creating a new entry</a>.</p>
+        		<p>Your goals are eagerly awaiting you. Get started by <a href="/#!/exercises">viewing all your exercises</a> or <a href="/#!/exercises/create">creating a new entry</a>.</p>
 
             <a class="btn btn-default" href="/signout">Signout</a>
         		

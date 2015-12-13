@@ -1,12 +1,11 @@
-angular.module('journal').controller('JournalController', 
-    function journalController($routeParams, $location, Authentication, Journals) {
+angular.module('exercises').controller('CreateUpdateExerciseCtrl', 
+    function exercisesController($routeParams, $location, Authentication, ExercisesApi) {
         var vm = this;
 
         vm.authentication = Authentication;
 
-        // Create 
         vm.createExercise = function createExercise() {
-            var journal = new Journals({
+            var exercise = new ExercisesApi({
                 exercise: vm.exercise,
                 exercise_slug: vm.exercise.replace(/\s+/g, '-').toLowerCase(),
                 sets: vm.sets,
@@ -14,8 +13,8 @@ angular.module('journal').controller('JournalController',
                 weight: vm.weight
             });
 
-            journal.$save(function(response) {
-                $location.path('journals/' + response._id);
+            exercise.$save(function(response) {
+                $location.path('exercises/' + response._id);
             }, function(errorResponse) {
                 vm.error = errorResponse.data.message;
             });
@@ -27,22 +26,6 @@ angular.module('journal').controller('JournalController',
             }, function(errorResponse) {
                 vm.error = errorResponse.data.message;
             });
-        };
-
-        vm.deleteExercise = function deleteExercise(journal) {
-            if (journal) {
-                journal.$remove(function() {
-                    for (var i in vm.journals) {
-                        if (vm.journals[i] === journal) {
-                            vm.journals.splice(i, 1);
-                        }
-                    }
-                });
-            } else {
-                vm.journal.$remove(function() {
-                    $location.path('journals');
-                });
-            }
         };
 
         //Add weight easily when resuming an exercise

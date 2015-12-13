@@ -1,0 +1,31 @@
+<section>
+	<h1>Here is a list of the exercises you've done</h1>
+
+    <p>Select an individual exercise to see a more detailed history and pick up where you left off, or:
+        <a class="btn btn-success" href="/#!/exercises/create">Create a new exercise</a>
+    </p>
+
+    <div class="search_box">
+        <h4>Search your exercises:</h4>
+        <div class="form-group">
+            <input type="text" placeholder="Search..." ng-model="vm.search.singleExercise">
+        </div>
+    </div>
+
+	<table class="table table-striped">
+         <tr>
+            <th>Exercise</th>
+            <th>You last did this on:</th>
+        </tr>
+        <tr ng-repeat="singleExercise in vm.exerciseData | filter:search | orderBy:'created':true | unique: 'exercise'" >
+            <td ng-show="singleExercise.exercise_slug != 'no-slug'"><a href="/#!/individual-exercise/{{singleExercise.exercise_slug}}">
+            {{::singleExercise.exercise}}</a></td>
+            <td ng-show="singleExercise.exercise_slug != 'no-slug'">{{::singleExercise.created | date:'EEEE MMMM d'}}</td>
+        </tr>
+    </table>
+    
+	<div ng-show="!vm.exerciseData && vm.contentLoaded">
+		No exercises yet, why don't you <a href="/#!/exercises/create">create one</a>?
+	</div>
+
+</section>
