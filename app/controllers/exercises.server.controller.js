@@ -81,7 +81,7 @@ exports.update = function(req, res) {
 
 // Delete
 exports.delete = function(req, res) {
-	var exercise = req.Exercise;
+	var exercise = req.exercise;
 
 	exercise.remove(function(err) {
 		if (err) {

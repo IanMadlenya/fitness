@@ -2,8 +2,6 @@ angular.module('exercises').controller('CreateUpdateExerciseCtrl',
     function exercisesController($routeParams, $location, Authentication, ExercisesApi) {
         var vm = this;
 
-        vm.authentication = Authentication;
-
         if($routeParams.hasOwnProperty('exerciseId')) {
             ExercisesApi.get({
                 exerciseId: $routeParams.exerciseId
