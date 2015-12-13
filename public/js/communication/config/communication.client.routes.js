@@ -1,4 +1,4 @@
-angular.module('communication').config(function emailRoutes($routeProvider) {
+angular.module('communication').config(function communicationRoutes($routeProvider) {
 	$routeProvider.
 		when('/communication/send-email', {
 			templateUrl: 'js/communication/views/send-email.client.view.html',
