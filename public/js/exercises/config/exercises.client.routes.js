@@ -32,13 +32,13 @@ angular.module('exercises').config(function exerciseRoutes($routeProvider) {
 			templateUrl: 'js/exercises/views/resume-exercise.client.view.html',
 			controller: 'CreateUpdateExerciseCtrl as vm'
 		}).
-		when('/individual-exercise/:exercise_slug', {
+		when('/individual-exercise/:exerciseSlug', {
 			templateUrl: 'js/exercises/views/individual-exercise.client.view.html',
 			controller: 'IndividualExerciseCtrl as vm',
 			resolve: {
 				individualExerciseData: function($route, ExercisesApi) {
 					return ExercisesApi.query({
-						exercise_slug: $route.current.params.exercise_slug
+						exerciseSlug: $route.current.params.exerciseSlug
 					});
 				}
 			}

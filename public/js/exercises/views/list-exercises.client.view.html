@@ -18,9 +18,9 @@
             <th>You last did this on:</th>
         </tr>
         <tr ng-repeat="singleExercise in vm.exerciseData | filter:search | orderBy:'created':true | unique: 'exercise'" >
-            <td ng-show="singleExercise.exercise_slug != 'no-slug'"><a href="/#!/individual-exercise/{{singleExercise.exercise_slug}}">
+            <td ng-show="singleExercise.exerciseSlug != 'no-slug'"><a href="/#!/individual-exercise/{{singleExercise.exerciseSlug}}">
             {{::singleExercise.exercise}}</a></td>
-            <td ng-show="singleExercise.exercise_slug != 'no-slug'">{{::singleExercise.created | date:'EEEE MMMM d'}}</td>
+            <td ng-show="singleExercise.exerciseSlug != 'no-slug'">{{::singleExercise.created | date:'EEEE MMMM d'}}</td>
         </tr>
     </table>
     

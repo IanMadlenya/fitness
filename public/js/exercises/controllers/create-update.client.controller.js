@@ -53,7 +53,7 @@ angular.module('exercises').controller('CreateUpdateExerciseCtrl',
             var data = {};
 
             data.exercise = exerciseData.exercise;
-            data.exercise_slug = exerciseData.exercise.replace(/\s+/g, '-').toLowerCase();
+            data.exerciseSlug = exerciseData.exercise.replace(/\s+/g, '-').toLowerCase();
             data.reps = exerciseData.reps;
             data.sets = exerciseData.sets;
             data.weight = exerciseData.weight;

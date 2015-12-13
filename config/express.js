@@ -58,7 +58,7 @@ module.exports = function() {
 
 	require('../app/routes/index.server.routes.js')(app);
 	require('../app/routes/user.server.routes.js')(app);
-	require('../app/routes/journal.server.routes.js')(app);
+	require('../app/routes/exercises.server.routes.js')(app);
 
 	//serve static files
 

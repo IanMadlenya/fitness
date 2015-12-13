@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-	Journal = mongoose.model('Journal');
+	Exercise = mongoose.model('Exercise');
 
 var getErrorMessage = function(err) {
 	if (err.errors) {
@@ -13,17 +13,17 @@ var getErrorMessage = function(err) {
 
 // Create
 exports.create = function(req, res) {
-	var journal = new Journal(req.body);
+	var exercise = new Exercise(req.body);
 
-	journal.creator = req.user;
+	exercise.creator = req.user;
 
-	journal.save(function(err) {
+	exercise.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)
 			});
 		} else {
-			res.json(journal);
+			res.json(exercise);
 		}
 	});
 };
@@ -31,9 +31,9 @@ exports.create = function(req, res) {
 // List
 exports.list = function(req, res) {
 
-	if(req.query.exercise_slug) {
+	if(req.query.exerciseSlug) {
 
-		var query = {'creator' : req.user.id, 'exercise_slug' : req.query.exercise_slug };
+		var query = {'creator' : req.user.id, 'exerciseSlug' : req.query.exerciseSlug };
 	
 	} else {
 		
@@ -41,67 +41,67 @@ exports.list = function(req, res) {
 		
 	} 
 
-	Journal.find( query , function(err, journals) {
+	Exercise.find( query , function(err, exercises) {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)
 			});
 		} else {
-			res.json(journals);
+			res.json(exercises);
 		}
 	});
 };
 
 // Read
 exports.read = function(req, res) {
-	res.json(req.journal);
+	res.json(req.exercise);
 };
 
 // Update
 exports.update = function(req, res) {
-	var journal = req.journal;
+	var exercise = req.exercise;
 
-	// Update the journal fields
-	journal.sets = req.body.sets
-	journal.exercise = req.body.exercise;
-	journal.weight = req.body.weight;
-	journal.reps = req.body.reps;
+	// Update the Exercise fields
+	exercise.sets = req.body.sets
+	exercise.exercise = req.body.exercise;
+	exercise.weight = req.body.weight;
+	exercise.reps = req.body.reps;
 
-	// Try saving the updated journal
-	journal.save(function(err) {
+	// Try saving the updated Exercise
+	exercise.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)
 			});
 		} else {
-			res.json(journal);
+			res.json(exercise);
 		}
 	});
 };
 
 // Delete
 exports.delete = function(req, res) {
-	var journal = req.journal;
+	var exercise = req.Exercise;
 
-	journal.remove(function(err) {
+	exercise.remove(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)
 			});
 		} else {
-			res.json(journal);
+			res.json(exercise);
 		}
 	});
 };
 
 // Get single by ID
-exports.journalByID = function(req, res, next, id) {
-	Journal.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err, journal) {
+exports.exerciseByID = function(req, res, next, id) {
+	Exercise.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err, exercise) {
 		if (err) return next(err);
-		if (!journal) return next(new Error('Failed to load journal ' + id));
+		if (!exercise) return next(new Error('Failed to load Exercise ' + id));
 
 		// If found use the 'request' object to pass it to the next middleware
-		req.journal = journal;
+		req.exercise = exercise;
 
 		next();
 	});
@@ -110,7 +110,7 @@ exports.journalByID = function(req, res, next, id) {
 
 // Auth
 exports.hasAuthorization = function(req, res, next) {
-	if (req.journal.creator.id !== req.user.id) {
+	if (req.exercise.creator.id !== req.user.id) {
 		return res.status(403).send({
 			message: 'User is not authorized'
 		});

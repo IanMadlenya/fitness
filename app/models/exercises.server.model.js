@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 // Define a new 'JournalSchema'
-var JournalSchema = new Schema({
+var ExerciseSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
@@ -13,7 +13,7 @@ var JournalSchema = new Schema({
 		trim: true,
 		required: 'Exercise cannot be blank'
 	},
-	exercise_slug: {
+	exerciseSlug: {
 		type: String,
 		default: 'no-slug'
 	},
@@ -38,5 +38,5 @@ var JournalSchema = new Schema({
 	}
 });
 
-// Create the 'Journal' model out of the 'JournalSchema'
-mongoose.model('Journal', JournalSchema);
+// Create the 'Exercise' model out of the 'ExerciseSchema'
+mongoose.model('Exercise', ExerciseSchema);
