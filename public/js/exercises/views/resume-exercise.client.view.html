@@ -1,54 +1,53 @@
 <section>
-		
-		<h2>Great work!  Keep it up...</h2>
-		<div class="col-md-4">
-			<form class="form-horizontal" ng-submit="vm.create()" novalidate>
-				<div class="form-group">
-					<label for="exercise">Exercise</label>
-					<div>
-						<input class="form-control" type="text" ng-model="vm.journal.exercise" id="exercise" placeholder="Exercise" required>
-					</div>
+	<h2>Great work!  Keep it up...</h2>
+	<div class="col-md-4">
+		<form class="form-horizontal" ng-submit="vm.createExercise(vm.exerciseData)" novalidate>
+			<div class="form-group">
+				<label for="exercise">Exercise</label>
+				<div>
+					<input class="form-control" type="text" ng-model="vm.exerciseData.exercise" id="exercise" placeholder="Exercise" required>
 				</div>
+			</div>
 
-				<div class="form-group">
-					<label for="Sets">Sets</label>
+			<div class="form-group">
+				<label for="Sets">Sets</label>
 
-					<button ng-click="vm.incrementSets()" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Add Set</button>
-					
-					<div>
-						<input class="form-control" type="text" ng-model="vm.journal.sets" id="sets" placeholder="Sets" required>
-					</div>
-				</div>
+				<button ng-click="vm.incrementSets()" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Add Set</button>
 				
-				<div class="form-group">
-					<label for="reps">Reps</label>
-					<div>
-						<input class="form-control" type="text" ng-model="vm.journal.reps" id="reps" placeholder="Reps" required>
-					</div>
+				<div>
+					<input class="form-control" type="text" ng-model="vm.exerciseData.sets" id="sets" placeholder="Sets" required>
 				</div>
-				
-				<div class="form-group">
-					<label for="weight">Weight</label>
-
-					<button ng-click="vm.incrementWeight(3)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>3 lbs</button>
-
-					<button ng-click="vm.incrementWeight(5)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>5 lbs</button>
-
-					<button ng-click="vm.incrementWeight(10)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>10 lbs</button>
-
-					<button ng-click="vm.incrementWeight(25)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>25 lbs</button>
-
-					<div>
-						<input class="form-control" type="text" ng-model="vm.journal.weight" id="weight" placeholder="Weight" required>
-					</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="reps">Reps</label>
+				<div>
+					<input class="form-control" type="text" ng-model="vm.exerciseData.reps" id="reps" placeholder="Reps" required>
 				</div>
-				
-				<button type="submit" class="btn btn-success btn-action">Create</button>
-				
-				<!-- The error message element -->
-				<div ng-show="vm.error">
-					<strong data-ng-bind="vm.error"></strong>
+			</div>
+			
+			<div class="form-group">
+				<label for="weight">Weight</label>
+
+				<button ng-click="vm.incrementWeight(3)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>3 lbs</button>
+
+				<button ng-click="vm.incrementWeight(5)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>5 lbs</button>
+
+				<button ng-click="vm.incrementWeight(10)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>10 lbs</button>
+
+				<button ng-click="vm.incrementWeight(25)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>25 lbs</button>
+
+				<div>
+					<input class="form-control" type="text" ng-model="vm.exerciseData.weight" id="weight" placeholder="Weight" required>
 				</div>
-			</form>
-		</div>
+			</div>
+			
+			<button type="submit" class="btn btn-success btn-action">Create</button>
+			
+			<!-- The error message element -->
+			<div ng-show="vm.error">
+				<strong data-ng-bind="vm.error"></strong>
+			</div>
+		</form>
+	</div>
 </section>

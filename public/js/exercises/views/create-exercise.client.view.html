@@ -1,22 +1,22 @@
 <section>
 	<h1>Add a new exercise!</h1>
 	<div class="col-md-4">
-		<form class="form-horizontal" ng-submit="vm.createExercise()" novalidate>
+		<form class="form-horizontal" ng-submit="vm.createExercise(vm.exerciseData)" novalidate>
 			
 			<div class="form-group">
-				<input class="form-control" type="text" ng-model="vm.exercise" id="exercise" placeholder="Exercise" required>
+				<input class="form-control" type="text" ng-model="vm.exerciseData.exercise" id="exercise" placeholder="Exercise" required>
 			</div>
 
 			<div class="form-group">
-				<input class="form-control" type="text" ng-model="vm.sets" id="sets" placeholder="Sets" required>
+				<input class="form-control" type="text" ng-model="vm.exerciseData.sets" id="sets" placeholder="Sets" required>
 			</div>
 			
 			<div class="form-group">
-				<input class="form-control" ng-model="vm.reps" id="reps"  placeholder="Reps" required>
+				<input class="form-control" ng-model="vm.exerciseData.reps" id="reps"  placeholder="Reps" required>
 			</div>
 			
 			<div class="form-group">
-				<input class="form-control" ng-model="vm.weight" id="weight"  placeholder="Weight" required>
+				<input class="form-control" ng-model="vm.exerciseData.weight" id="weight"  placeholder="Weight" required>
 			</div>
 			
 			<div class="form-group">

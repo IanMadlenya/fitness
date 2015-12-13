@@ -13,7 +13,7 @@ angular.module('exercises').config(function exerciseRoutes($routeProvider) {
 			templateUrl: 'js/exercises/views/create-exercise.client.view.html',
 			controller: 'CreateUpdateExerciseCtrl as vm'
 		}).
-		when('/exercises/:id', {
+		when('/exercises/:exerciseId', {
 			templateUrl: 'js/exercises/views/review-exercise.client.view.html',
 			controller: 'ReviewExerciseCtrl as vm',
 			resolve: {
@@ -24,11 +24,11 @@ angular.module('exercises').config(function exerciseRoutes($routeProvider) {
 				}
 			}
 		}).
-		when('/exercises/:id/edit', {
+		when('/exercises/:exerciseId/edit', {
 			templateUrl: 'js/exercises/views/edit-exercise.client.view.html',
 			controller: 'CreateUpdateExerciseCtrl as vm'
 		}).
-		when('/exercises/:id/resume', {
+		when('/exercises/:exerciseId/resume', {
 			templateUrl: 'js/exercises/views/resume-exercise.client.view.html',
 			controller: 'CreateUpdateExerciseCtrl as vm'
 		}).

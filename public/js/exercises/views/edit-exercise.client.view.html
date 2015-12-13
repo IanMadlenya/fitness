@@ -1,29 +1,29 @@
-<section data-ng-controller="JournalController as vm" ng-init="vm.findOne()">
+<section>
 		<h2>Nobody's perfect!  Edit your entry below...</h2>
 		<div class="col-md-4">
-			<form class="form-horizontal" ng-submit="vm.update()" novalidate>
+			<form class="form-horizontal" ng-submit="vm.updateExercise(vm.exerciseData)" novalidate>
 				<div class="form-group">
 					<label for="exercise">Exercise</label>
 					<div>
-						<input class="form-control" type="text" ng-model="vm.journal.exercise" id="exercise" placeholder="Exercise" required>
+						<input class="form-control" type="text" ng-model="vm.exerciseData.exercise" id="exercise" placeholder="Exercise" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="sets">Sets</label>
 					<div>
-						<input class="form-control" type="text" ng-model="vm.journal.sets" id="sets" placeholder="Exercise" required>
+						<input class="form-control" type="text" ng-model="vm.exerciseData.sets" id="sets" placeholder="Exercise" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="reps">Reps</label>
 					<div>
-						<input class="form-control" type="text" ng-model="vm.journal.reps" id="reps" placeholder="Reps" required>
+						<input class="form-control" type="text" ng-model="vm.exerciseData.reps" id="reps" placeholder="Reps" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="weight">Weight</label>
 					<div>
-						<input class="form-control" type="text" ng-model="vm.journal.weight" id="weight" placeholder="Weight" required>
+						<input class="form-control" type="text" ng-model="vm.exerciseData.weight" id="weight" placeholder="Weight" required>
 					</div>
 				</div>
 				
