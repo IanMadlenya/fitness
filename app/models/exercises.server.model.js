@@ -1,7 +1,6 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
-// Define a new 'JournalSchema'
 var ExerciseSchema = new Schema({
 	created: {
 		type: Date,
