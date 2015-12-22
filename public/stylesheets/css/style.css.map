@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,IAAK;EACJ,WAAW,EAAE,uBAAuB;;ACDrC,WAAY;EACX,KAAK,EAAE,GAAG;EACV,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,MAAM;EACd,SAAS,EAAE,OAAO;EAClB,cAAc,EAAE,SAAS;;;;;;ACH1B,KAAM;EACL,OAAO,EAAE,IAAI;;AAGd,aAAc;EACb,OAAO,EAAE,IAAI;;ACWd,yBAA0B;;EChB1B,KAAM;IACL,OAAO,EAAE,YAAY;ADmBtB,yBAA0B;;EEpB1B,aAAc;IACb,OAAO,EAAE,YAAY;AFuBtB,0BAA2B;;AAI3B,0BAA2B",
-"sources": ["../scss/partials/_typography.scss","../scss/modules/_buttons.scss","../scss/breakpoints/_base.scss","../scss/style.scss","../scss/breakpoints/_481up.scss","../scss/breakpoints/_768up.scss"],
-"names": [],
-"file": "style.css"
-}

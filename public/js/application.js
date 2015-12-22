@@ -24,7 +24,3 @@ if (window.location.hash === '#_=_') window.location.hash = '#!';
 //fix redirect bug to /# that happens on some browsers
 
 if (window.location.href.slice(-1) === '#') window.location.hash = "#!";
-
-angular.element(document).ready(function() {
-    angular.bootstrap(document, [mainApplicationModuleName]);
-});

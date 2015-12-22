@@ -35,3 +35,7 @@ public/lib
 
 .sass-cache
 
+#grunt build
+
+public/dist
+
