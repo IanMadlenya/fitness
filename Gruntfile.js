@@ -79,5 +79,5 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['jshint', 'concurrent']);
     grunt.registerTask('build', ['ngAnnotate', 'concat', 'uglify', 'sass']);
-    grunt.registerTask('heroku', ['build']);
+    grunt.registerTask('heroku:production', ['build']);
 };
