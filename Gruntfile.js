@@ -13,8 +13,8 @@ module.exports = function(grunt) {
         },
         watch: {
             js: {
-                files: ['public/js/**/*.js'],
-                tasks: ['jshint']
+                files: ['public/js/**/*.js', 'public/js/**/*.html'],
+                tasks: ['jshint', 'buildjs:dev']
             },
 
             css: {
@@ -79,6 +79,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
 
     grunt.registerTask('default', ['jshint', 'concurrent']);
+    grunt.registerTask('buildjs:dev', ['ngAnnotate', 'concat']);
     grunt.registerTask('build', ['ngAnnotate', 'concat', 'uglify', 'sass']);
     grunt.registerTask('heroku:production', ['build']);
 };

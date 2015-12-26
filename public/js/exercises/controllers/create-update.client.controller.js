@@ -57,6 +57,6 @@ angular.module('exercises').controller('CreateUpdateExerciseCtrl',
             data.weight = exerciseData.weight;
 
             return data;
-        };
+        }
     }
 );
