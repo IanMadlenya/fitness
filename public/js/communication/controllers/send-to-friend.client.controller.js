@@ -28,15 +28,13 @@ angular.module('communication').controller('SendToFriendController', function se
 			vm.recentContacts = [];
 		}
 
-		vm.recentContacts.push(recipient);
+		vm.recentContacts.unshift(recipient);
 		localStorageService.set(RECENT_CONTACT_KEY, vm.recentContacts);
 	}
 
 	function getRecentContactList() {
 		var contactList = localStorageService.get(RECENT_CONTACT_KEY);
-		var shortenedContactList = contactList.slice(Math.max(contactList.length - 3, 1)).reverse();
-
-		console.log(shortenedContactList);
+		var shortenedContactList = contactList.slice(Math.max(contactList.length - 5, 1)).reverse();
 
 		return shortenedContactList;
 	}

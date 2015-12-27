@@ -1,7 +1,7 @@
 <section>
 		<h2>Send to friend</h2>
 		<div ng-show="vm.sucessfulMessageRecipient" class="alert alert-success" role="alert">
-			Email successfully sent to <b>{{vm.sucessfulMessageRecipient}}</b>
+			Message successfully sent to <b>{{vm.sucessfulMessageRecipient}}</b>
 		</div>
 		<div class="col-md-4">
 			<form class="form-horizontal" ng-submit="vm.sendMessage(vm.messageData)" novalidate>
@@ -26,7 +26,7 @@
 					</div>
 				</div>
 				
-				<button type="submit" class="btn btn-success btn-action">Send email</button>
+				<button type="submit" class="btn btn-success btn-action">Send message</button>
 			</form>
 		</div>
 </section>

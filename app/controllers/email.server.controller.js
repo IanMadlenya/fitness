@@ -10,21 +10,11 @@ var transporter = nodemailer.createTransport({
     from: process.env.MEAN_FIT_NOTIFICATIONS_NAME
 });
 
-var getErrorMessage = function(err) {
-    if (err.errors) {
-        for (var errName in err.errors) {
-            if (err.errors[errName].message) return err.errors[errName].message;
-        }
-    } else {
-        return 'Unknown server error';
-    }
-};
-
 exports.sendEmail = function(req, res) {
     transporter.sendMail({
         to: req.body.recipient,
         subject: 'Fitness notification',
-        text: req.body.message
+        text: req.body.messageContent
     }, function(error, success) {
         console.log(error);
         if (error) {
