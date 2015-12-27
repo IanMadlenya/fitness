@@ -55,6 +55,7 @@ module.exports = function(grunt) {
                     'public/lib/angular-route/angular-route.js',
                     'public/lib/angular-resource/angular-resource.js',
                     'public/lib/angular-ui/build/angular-ui.min.js',
+                    'public/lib/angular-local-storage/dist/angular-local-storage.min.js',
                     'public/dist/application.js', 
                     'public/dist/*.js'],
                 dest: 'public/dist/bundle.js'

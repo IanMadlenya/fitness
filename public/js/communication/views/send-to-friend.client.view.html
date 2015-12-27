@@ -1,6 +1,6 @@
 <section>
-		<h2>Send email test</h2>
-		<div ng-show="vm.sucessfulEmailRecipient" class="alert alert-success" role="alert">
+		<h2>Send to friend</h2>
+		<div ng-show="vm.sucessfulMessageRecipient" class="alert alert-success" role="alert">
 			Email successfully sent to <b>{{vm.sucessfulMessageRecipient}}</b>
 		</div>
 		<div class="col-md-4">
@@ -9,6 +9,14 @@
 					<label for="exercise">Recipient</label>
 					<div>
 						<input class="form-control" type="text" ng-model="vm.messageData.recipient" id="recipient" placeholder="Recipient" required>
+					</div>
+					<div ng-if="vm.recentContacts">
+						<h4><strong>Recent contacts (click to use):</strong></h4>
+						<div ng-repeat="recentContact in vm.recentContacts | unique: recentContact">
+							<div>
+								<a href ng-click="vm.bindRecentContact(recentContact)">{{::recentContact}}</a>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">
