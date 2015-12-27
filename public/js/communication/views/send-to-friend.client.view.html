@@ -1,0 +1,24 @@
+<section>
+		<h2>Send email test</h2>
+		<div ng-show="vm.sucessfulEmailRecipient" class="alert alert-success" role="alert">
+			Email successfully sent to <b>{{vm.sucessfulMessageRecipient}}</b>
+		</div>
+		<div class="col-md-4">
+			<form class="form-horizontal" ng-submit="vm.sendMessage(vm.messageData)" novalidate>
+				<div class="form-group">
+					<label for="exercise">Recipient</label>
+					<div>
+						<input class="form-control" type="text" ng-model="vm.messageData.recipient" id="recipient" placeholder="Recipient" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="reps">Message</label>
+					<div>
+						<textarea class="form-control" type="text" ng-model="vm.messageData.messageContent" id="message" placeholder="Message" required></textarea>
+					</div>
+				</div>
+				
+				<button type="submit" class="btn btn-success btn-action">Send email</button>
+			</form>
+		</div>
+</section>

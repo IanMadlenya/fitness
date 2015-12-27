@@ -23,7 +23,7 @@ var getErrorMessage = function(err) {
 exports.sendEmail = function(req, res) {
     transporter.sendMail({
         to: req.body.recipient,
-        subject: req.body.subject,
+        subject: 'Fitness notification',
         text: req.body.message
     }, function(error, success) {
         console.log(error);

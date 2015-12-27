@@ -1,11 +1,11 @@
-angular.module('communication').factory('EmailApi', function emailApi($resource) {
+angular.module('communication').factory('MessageApi', function messageApi($resource) {
 	
 	var API_PATH = 'api/email',
 
 	defaultParams = {},
 	
 	actions = {
-		sendEmail: {
+		sendMessage: {
 			method: 'POST',
 			url: API_PATH + '/send-email'
 		}

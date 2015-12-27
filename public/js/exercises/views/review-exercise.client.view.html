@@ -4,10 +4,7 @@
 		<a href="/#!/individual-exercise/{{vm.exerciseData.exerciseSlug}}"><h3 ng-bind="vm.exerciseData.exercise"></h3></a>
 
 		<h3>Sets: <span ng-bind="vm.exerciseData.sets"></span></h3>
-
 		<h3>Reps: <span ng-bind="vm.exerciseData.reps"></span></h3>
-
-
 		<h3>Weight: <span ng-bind="vm.exerciseData.weight"></span></h3>
 
 
@@ -20,12 +17,15 @@
 		</div>
 
 		<div class="row">
-			<a href="/#!/" data-ng-click="vm.deleteExercise();" class="btn btn-danger btn-action">Delete</a>
+			<a href="/#!/" ng-click="vm.deleteExercise();" class="btn btn-danger btn-action">Delete</a>
+		</div>
+
+		<div class="row">
+			<a href="/#!/communication/send/{{vm.exerciseData._id}}" class="btn btn-success btn-action">Send to friend</a>
 		</div>
 
 		<div class="row">
 			<a href="/#!/exercises" class="btn btn-default btn-action">View all Exercises</a>
 		</div>
-
 	</div>
 </section>

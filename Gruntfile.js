@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         watch: {
             js: {
                 files: ['public/js/**/*.js', 'public/js/**/*.html'],
-                tasks: ['jshint', 'buildjs:dev']
+                tasks: ['jshint', 'build:dev']
             },
 
             css: {
@@ -65,7 +65,8 @@ module.exports = function(grunt) {
                 src: ['public/dist/bundle.js'],
                 dest: 'public/dist/bundle.js'
             }
-        }
+        },
+        clean: ['public/dist']
     });
 
 
@@ -74,12 +75,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-ng-annotate'); 
+    grunt.loadNpmTasks('grunt-ng-annotate');
+    grunt.loadNpmTasks('grunt-contrib-clean'); 
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
 
     grunt.registerTask('default', ['jshint', 'concurrent']);
-    grunt.registerTask('buildjs:dev', ['ngAnnotate', 'concat']);
-    grunt.registerTask('build', ['ngAnnotate', 'concat', 'uglify', 'sass']);
+    grunt.registerTask('build:dev', ['clean', 'ngAnnotate', 'concat', 'sass']);
+    grunt.registerTask('build', ['clean', 'ngAnnotate', 'concat', 'uglify', 'sass']);
     grunt.registerTask('heroku:production', ['build']);
 };
