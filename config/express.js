@@ -19,13 +19,9 @@ module.exports = function() {
 	var app = express();
 
 	if(process.env.NODE_ENV === 'development') {
-
 		app.use(morgan('dev'));
-
 	} else if (process.env.NODE_ENV === 'production') {
-
 		app.use(compress());
-
 	}
 
 	app.use(bodyParser.urlencoded({
@@ -45,7 +41,6 @@ module.exports = function() {
 	//ejs
 
 	app.set('views', './app/views');
-
 	app.set('view engine', 'ejs');
 
 	//flash and passport
@@ -60,6 +55,7 @@ module.exports = function() {
 	require('../app/routes/user.server.routes.js')(app);
 	require('../app/routes/exercises.server.routes.js')(app);
 	require('../app/routes/email.server.routes.js')(app);
+	require('../app/routes/analytics.server.routes.js')(app);
 
 	//serve static files
 

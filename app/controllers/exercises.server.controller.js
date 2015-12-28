@@ -32,16 +32,12 @@ exports.create = function(req, res) {
 exports.list = function(req, res) {
 
 	if(req.query.exerciseSlug) {
-
 		var query = {'creator' : req.user.id, 'exerciseSlug' : req.query.exerciseSlug };
-	
 	} else {
-		
 		var query = {'creator' : req.user.id }
-		
 	} 
 
-	Exercise.find( query , function(err, exercises) {
+	Exercise.find(query, function(err, exercises) {
 		if (err) {
 			return res.status(400).send({
 				message: getErrorMessage(err)
