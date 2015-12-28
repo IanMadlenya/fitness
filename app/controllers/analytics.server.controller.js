@@ -8,7 +8,7 @@ exports.getMetaAnalytics = function(req, res) {
 	Exercise.find(query, function(err, exercises) {
 		if (err) {
 			return res.status(400).send({
-				message: getErrorMessage(err)
+				message: err
 			});
 		} else {
 			res.json(analyticsDataMapper(exercises));
