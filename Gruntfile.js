@@ -67,7 +67,12 @@ module.exports = function(grunt) {
                 dest: 'public/dist/bundle.js'
             }
         },
-        clean: ['public/dist']
+        clean: ['public/dist'],
+        mochaTest: {
+            test: {
+                src: ['app/tests/*.js']
+            }
+        }
     });
 
 
@@ -80,8 +85,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean'); 
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask('default', ['jshint', 'concurrent']);
+    grunt.registerTask('test:server', 'mochaTest');
     grunt.registerTask('build:dev', ['clean', 'ngAnnotate', 'concat', 'sass']);
     grunt.registerTask('build', ['clean', 'ngAnnotate', 'concat', 'uglify', 'sass']);
     grunt.registerTask('heroku:production', ['build']);
