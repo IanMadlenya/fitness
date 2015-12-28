@@ -19,23 +19,23 @@ exports.getMetaAnalytics = function(req, res) {
 function analyticsDataMapper(exercises) {
 	var analyticsData = {};
 
-	analyticsData.exerciseFrequency = getExerciseFrequency(exercises);
+	analyticsData.averageDaysBetweenWorkouts = getAverageDaysBetweenWorkouts(exercises);
 
 	return analyticsData;
 };
 
-function getExerciseFrequency(exercises) {
+function getAverageDaysBetweenWorkouts(exercises) {
 	var allExerciseDates = [],
 		uniqueExerciseDates = [],
 		groupOfDaysBetweenExercises = [],
-		averageDaysBetweenWorkout = 0;
+		averageDaysBetweenWorkouts = 0;
 
 	exercises.map(function(singleExercise) {
 		allExerciseDates.push(moment(singleExercise.created).format('YYYY MM DD'));
 	});
 
 	uniqueExerciseDates = allExerciseDates.filter(function(elem, pos) {
-    	return allExerciseDates.indexOf(elem) === pos;
+		return allExerciseDates.indexOf(elem) === pos;
 	});
 
 	for(var i = 0; i < uniqueExerciseDates.length - 1; i++) {
@@ -44,10 +44,10 @@ function getExerciseFrequency(exercises) {
 	};
 
 	for(var z = 0; z < groupOfDaysBetweenExercises.length; z++) {
-		averageDaysBetweenWorkout += groupOfDaysBetweenExercises[z];
+		averageDaysBetweenWorkouts += groupOfDaysBetweenExercises[z];
 	};
 
-	averageDaysBetweenWorkout = averageDaysBetweenWorkout / groupOfDaysBetweenExercises.length;
+	averageDaysBetweenWorkouts = averageDaysBetweenWorkouts / groupOfDaysBetweenExercises.length;
 
-	return averageDaysBetweenWorkout;
+	return averageDaysBetweenWorkouts;
 };
