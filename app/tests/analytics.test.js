@@ -1,5 +1,5 @@
 var assert = require('assert'),
-	analyticsController = require('')
+	//analyticsController = require('')
 
 //Boilerplate
 describe('String#split', function() {
