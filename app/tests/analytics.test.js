@@ -1,4 +1,4 @@
-var assert = require('assert'),
+var assert = require('assert');
 	//analyticsController = require('')
 
 //Boilerplate
