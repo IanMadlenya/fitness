@@ -28,21 +28,24 @@ exports.getAverageDaysBetweenWorkouts = function(exercises) {
 	var allExerciseDates = [],
 		uniqueExerciseDates = [],
 		groupOfDaysBetweenExercises = [],
-		averageDaysBetweenWorkouts = 0;
+		averageDaysBetweenWorkouts = 0,
+		daysBetweenExercises;
 
+	//Push all 'created' dates to new array
 	exercises.map(function(singleExercise) {
-		allExerciseDates.push(moment(singleExercise.created).format('YYYY MM DD'));
+		allExerciseDates.push(moment(singleExercise.created).startOf('day'));
 	});
 
-	uniqueExerciseDates = allExerciseDates.filter(function(elem, pos) {
-		return allExerciseDates.indexOf(elem) === pos;
-	});
+	//Get the difference between each date, and add each difference (when greater than 0) to new array
+	for(var i = 0; i < allExerciseDates.length - 1; i++) {
+		daysBetweenExercises = moment(allExerciseDates[i + 1]).diff(moment(allExerciseDates[i]), 'days');
 
-	for(var i = 0; i < uniqueExerciseDates.length - 1; i++) {
-		var daysBetweenExercises = moment(uniqueExerciseDates[i + 1]).diff(moment(uniqueExerciseDates[i]), 'days');
-		groupOfDaysBetweenExercises.push(daysBetweenExercises);
+		if(daysBetweenExercises > 0) {
+			groupOfDaysBetweenExercises.push(daysBetweenExercises);
+		}
 	};
 
+	//Get average of all the differences in days
 	for(var z = 0; z < groupOfDaysBetweenExercises.length; z++) {
 		averageDaysBetweenWorkouts += groupOfDaysBetweenExercises[z];
 	};
