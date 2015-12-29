@@ -19,12 +19,12 @@ exports.getMetaAnalytics = function(req, res) {
 function analyticsDataMapper(exercises) {
 	var analyticsData = {};
 
-	analyticsData.averageDaysBetweenWorkouts = getAverageDaysBetweenWorkouts(exercises);
+	analyticsData.averageDaysBetweenWorkouts = exports.getAverageDaysBetweenWorkouts(exercises);
 
 	return analyticsData;
 };
 
-function getAverageDaysBetweenWorkouts(exercises) {
+exports.getAverageDaysBetweenWorkouts = function(exercises) {
 	var allExerciseDates = [],
 		uniqueExerciseDates = [],
 		groupOfDaysBetweenExercises = [],
