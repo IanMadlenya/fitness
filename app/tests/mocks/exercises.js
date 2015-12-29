@@ -2,7 +2,7 @@ module.exports = [
     {
         "_id": "",
         "creator": "",
-        "weight": "123",
+        "weight": "300",
         "reps": "123",
         "sets": "123",
         "exerciseSlug": "no-slug",
@@ -12,7 +12,7 @@ module.exports = [
     {
         "_id": "",
         "creator": "",
-        "weight": "123",
+        "weight": "300",
         "reps": "123",
         "sets": "123",
         "exerciseSlug": "bench-press",
@@ -22,7 +22,7 @@ module.exports = [
     {
         "_id": "",
         "creator": "",
-        "weight": "123",
+        "weight": "300",
         "reps": "123",
         "sets": "123",
         "exerciseSlug": "lunge",

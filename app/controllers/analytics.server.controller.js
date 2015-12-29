@@ -20,6 +20,8 @@ function analyticsDataMapper(exercises) {
 	var analyticsData = {};
 
 	analyticsData.averageDaysBetweenWorkouts = exports.getAverageDaysBetweenWorkouts(exercises);
+	analyticsData.totalWeightAllTime = exports.addGivenIntegersByKey(exercises, 'weight');
+	analyticsData.totalSetsAllTime = exports.addGivenIntegersByKey(exercises, 'sets');
 
 	return analyticsData;
 };
@@ -53,4 +55,15 @@ exports.getAverageDaysBetweenWorkouts = function(exercises) {
 	averageDaysBetweenWorkouts = averageDaysBetweenWorkouts / groupOfDaysBetweenExercises.length;
 
 	return averageDaysBetweenWorkouts;
+};
+
+exports.addGivenIntegersByKey = function(exercises, key) {
+	var allValues = [],
+		total = 0;
+
+	exercises.map(function(singleExercise) {
+		total += parseInt(singleExercise[key], 10);
+	});
+
+	return total;
 };
