@@ -14,8 +14,14 @@ describe('getAverageDaysBetweenWorkouts', function() {
 	});
 });
 
-describe('addGivenIntegersByKey', function() {
-	it('should return the total of all values matching the given key', function() {
+describe('addGivenIntegersByKey - weight', function() {
+	it('should return the total of all weight from all exercises', function() {
 		assert.deepEqual(analyticsController.addGivenIntegersByKey(mockExerciseData, 'weight'), 900);
+	});
+});
+
+describe('addGivenIntegersByKey - reps', function() {
+	it('should return the total of all reps from all exercises', function() {
+		assert.deepEqual(analyticsController.addGivenIntegersByKey(mockExerciseData, 'reps'), 7);
 	});
 });
