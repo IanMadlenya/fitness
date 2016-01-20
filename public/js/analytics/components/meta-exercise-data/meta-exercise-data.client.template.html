@@ -1,0 +1,15 @@
+<div class="panel panel-default" >
+  <div class="panel-heading">
+  	<span ng-if="vm.isCollapsable && !vm.isOpen">
+		<a href ng-click="vm.toggleAnalytics()">View your overall workout data...</a>
+	</span>
+	<span ng-if="vm.isCollapsable && vm.isOpen">
+		<a href ng-click="vm.toggleAnalytics()">Hide</a>
+	</span>
+  </div>
+  <div ng-if="vm.isOpen" class="panel-body">
+	<div>Average days between workouts: {{::vm.metaAnalyticsData.averageDaysBetweenWorkouts}}<div>
+	<div>Total reps all time: {{::vm.metaAnalyticsData.totalRepsAllTime}}<div>
+	<div>Total weight all time: {{::vm.metaAnalyticsData.totalWeightAllTime}}<div>
+  </div>
+</div>

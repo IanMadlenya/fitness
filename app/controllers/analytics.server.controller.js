@@ -52,7 +52,11 @@ exports.getAverageDaysBetweenWorkouts = function(exercises) {
 		averageDaysBetweenWorkouts += singleItem;
 	});
 
-	averageDaysBetweenWorkouts = averageDaysBetweenWorkouts / groupOfDaysBetweenExercises.length;
+	averageDaysBetweenWorkouts = (averageDaysBetweenWorkouts / groupOfDaysBetweenExercises.length).toFixed(2);
+
+	if(isNaN(averageDaysBetweenWorkouts)) {
+		return 0;
+	}
 
 	return averageDaysBetweenWorkouts;
 };

@@ -10,7 +10,8 @@ var mainApplicationModule = angular.module(mainApplicationModuleName,
 	'home', 
 	'about', 
 	'exercises',
-	'communication']);
+	'communication',
+	'analytics']);
 
 
 mainApplicationModule.config(function appConfig($locationProvider) {
