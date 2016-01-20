@@ -2,7 +2,7 @@ angular.module('communication').controller('SendToFriendController', function se
 	var vm = this,
 		RECENT_CONTACT_KEY = 'meanfitRecentContacts';
 
-	vm.sucessfulMessageRecipient = false;
+	vm.successfulMessageRecipient = false;
 	vm.messageData = {};
 
 	vm.messageData.messageContent = 'Hey, I just did ' + exerciseData.exercise + '.  ' + exerciseData.reps + ' reps at ' + exerciseData.weight + ' pounds...';
@@ -13,7 +13,7 @@ angular.module('communication').controller('SendToFriendController', function se
 		updateRecentContactList(messageData.recipient);
 
 		MessageApi.sendMessage({}, messageData, function(res) {
-			vm.sucessfulMessageRecipient = res.accepted[0]; //TODO - refine json passed back so this is more semantic
+			vm.successfulMessageRecipient = res.accepted[0]; //TODO - refine json passed back so this is more semantic
 		}, function(error) {
 			console.log(error);
 		});
@@ -34,6 +34,11 @@ angular.module('communication').controller('SendToFriendController', function se
 
 	function getRecentContactList() {
 		var contactList = localStorageService.get(RECENT_CONTACT_KEY);
+
+		if(!contactList) {
+			return null;
+		}
+
 		var shortenedContactList = contactList.slice(Math.max(contactList.length - 5, 1)).reverse();
 
 		return shortenedContactList;
