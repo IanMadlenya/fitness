@@ -34,7 +34,7 @@ exports.getAverageDaysBetweenWorkouts = function(exercises) {
 		daysBetweenExercises;
 
 	//Push all 'created' dates to new array
-	exercises.map(function(singleExercise) {
+	exercises.forEach(function(singleExercise) {
 		allExerciseDates.push(moment(singleExercise.created).startOf('day'));
 	});
 
@@ -48,7 +48,7 @@ exports.getAverageDaysBetweenWorkouts = function(exercises) {
 	};
 
 	//Get average of all the differences in days
-	groupOfDaysBetweenExercises.map(function(singleItem) {
+	groupOfDaysBetweenExercises.forEach(function(singleItem) {
 		averageDaysBetweenWorkouts += singleItem;
 	});
 
@@ -65,9 +65,22 @@ exports.addGivenIntegersByKey = function(exercises, key) {
 	var allValues = [],
 		total = 0;
 
-	exercises.map(function(singleExercise) {
+	exercises.forEach(function(singleExercise) {
 		total += parseInt(singleExercise[key], 10);
 	});
 
 	return total;
+};
+
+exports.getHighestValueByKey = function(exercises, key) {
+	var allValues = [],
+		highest = 0;
+
+	exercises.forEach(function(singleExercise) {
+		if(singleExercise[key] > highest) {
+			highest = singleExercise[key];
+		}
+	});
+
+	return highest;
 };

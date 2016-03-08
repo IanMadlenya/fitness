@@ -22,7 +22,7 @@ module.exports = [
     {
         "_id": "",
         "creator": "",
-        "weight": "300",
+        "weight": "400",
         "reps": "3",
         "sets": "123",
         "exerciseSlug": "lunge",
