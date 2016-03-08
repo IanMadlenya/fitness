@@ -24,23 +24,31 @@ angular.module('communication').controller('SendToFriendController', function se
 	};
 
 	function updateRecentContactList(recipient) {
+		var shortenedContactList = [];
+
 		if(!vm.recentContacts) {
 			vm.recentContacts = [];
 		}
 
-		vm.recentContacts.unshift(recipient);
-		localStorageService.set(RECENT_CONTACT_KEY, vm.recentContacts);
+		if(vm.recentContacts.indexOf(recipient) === -1) {
+			vm.recentContacts.unshift(recipient);
+			localStorageService.set(RECENT_CONTACT_KEY, shortenedContactList);
+		}
 	}
 
 	function getRecentContactList() {
-		var contactList = localStorageService.get(RECENT_CONTACT_KEY);
+		var contactList = localStorageService.get(RECENT_CONTACT_KEY),
+			shortenedContactList = [];
 
 		if(!contactList) {
 			return null;
 		}
 
-		var shortenedContactList = contactList.slice(Math.max(contactList.length - 5, 1)).reverse();
+		if(contactList.length > 3) {
+			shortenedContactList = contactList.splice(0, 3);
+			return shortenedContactList;
+		}
 
-		return shortenedContactList;
+		return contactList;
 	}
 });

@@ -11,12 +11,13 @@ var transporter = nodemailer.createTransport({
 });
 
 exports.sendEmail = function(req, res) {
+    //TODO:  I should catch all emails when working locally and just
+    //send them to my personal email...
     transporter.sendMail({
         to: req.body.recipient,
         subject: 'Fitness notification',
         text: req.body.messageContent
     }, function(error, success) {
-        console.log(error);
         if (error) {
             return res.status(400).send({
                 message: getErrorMessage(error)
