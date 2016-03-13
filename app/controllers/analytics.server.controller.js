@@ -11,12 +11,28 @@ exports.getMetaAnalytics = function(req, res) {
 				message: err
 			});
 		} else {
-			res.json(analyticsDataMapper(exercises));
+			res.json(metaAnalyticsDataMapper(exercises));
 		}
 	});
 };
 
-function analyticsDataMapper(exercises) {
+exports.getIndividualExerciseAnalytics = function(req, res, next, slug) {
+	var query = {'creator' : req.user.id, 'exerciseSlug' : slug };
+	
+	Exercise.find(query, function(err, exercises) {
+		if (err) {
+			return res.status(400).send({
+				message: err
+			});
+		} else {
+			res.json(individualExerciseAnalyticsDataMapper(exercises));
+		}
+	});
+};
+
+//Helper methods
+
+function metaAnalyticsDataMapper(exercises) {
 	var analyticsData = {};
 
 	analyticsData.averageDaysBetweenWorkouts = exports.getAverageDaysBetweenWorkouts(exercises);
@@ -24,6 +40,14 @@ function analyticsDataMapper(exercises) {
 	analyticsData.totalRepsAllTime = exports.addGivenIntegersByKey(exercises, 'reps');
 
 	return analyticsData;
+};
+
+function individualExerciseAnalyticsDataMapper(exercises) {
+	var exerciseAnalyticsData = {};
+
+	exerciseAnalyticsData.highestAllTime = exports.getHighestValueByKey(exercises, 'weight');
+
+	return exerciseAnalyticsData;
 };
 
 exports.getAverageDaysBetweenWorkouts = function(exercises) {

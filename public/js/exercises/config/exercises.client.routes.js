@@ -37,7 +37,7 @@ angular.module('exercises').config(function exerciseRoutes($routeProvider) {
 			controller: 'IndividualExerciseCtrl as vm',
 			resolve: {
 				individualExerciseData: function($route, ExercisesApi) {
-					return ExercisesApi.query({
+					return ExercisesApi.getExercisesBySlug({
 						exerciseSlug: $route.current.params.exerciseSlug
 					});
 				}

@@ -30,12 +30,7 @@ exports.create = function(req, res) {
 
 // List
 exports.list = function(req, res) {
-
-	if(req.query.exerciseSlug) {
-		var query = {'creator' : req.user.id, 'exerciseSlug' : req.query.exerciseSlug };
-	} else {
-		var query = {'creator' : req.user.id }
-	} 
+	var query = {'creator' : req.user.id }
 
 	Exercise.find(query, function(err, exercises) {
 		if (err) {
@@ -100,6 +95,21 @@ exports.exerciseByID = function(req, res, next, id) {
 		req.exercise = exercise;
 
 		next();
+	});
+};
+
+// Get single by ID
+exports.exerciseBySlug = function(req, res, next, slug) {
+	var query = {'creator' : req.user.id, 'exerciseSlug' : slug };
+
+	Exercise.find(query, function(err, exercises) {
+		if (err) {
+			return res.status(400).send({
+				message: getErrorMessage(err)
+			});
+		} else {
+			res.json(exercises);
+		}
 	});
 };
 

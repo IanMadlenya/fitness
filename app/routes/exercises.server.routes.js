@@ -11,6 +11,10 @@ module.exports = function(app) {
 	   .put(users.requiresLogin, exercises.hasAuthorization, exercises.update)
 	   .delete(users.requiresLogin, exercises.hasAuthorization, exercises.delete);
 
+	app.route('/api/exercises/listBySlug/:exerciseSlug')
+		.get(exercises.exerciseBySlug);
+
 	app.param('exerciseId', exercises.exerciseByID);  
+	app.param('exerciseSlug', exercises.exerciseBySlug);
 
 };
